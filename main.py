@@ -26,7 +26,7 @@ async def help():
 	await bot.say('__**ShrekBot 0.1 Commands:**__\n\n```css\n/help      : Shows help for commands\n/kill      : Kill minecraft avatars\n/clear     : Wipes the chat clean\n/at        : Adventure Time\n/choose    : Picks randomly between multiple choices\n/something : Random Stuff\n/zouss     : Zouss City\n/echo      : Echoes whatever you say```\n```\nIf you want to suggest more commands, visit the creator at:\nhttps://discord.gg/2anYtuD```')
 
 @bot.command()
-async def kill(mentioned = 'You'):
+async def kill(*, mentioned = 'You'):
 	await bot.say((mentioned) + ' fell out of the world')
 
 @bot.command()
