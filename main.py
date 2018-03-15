@@ -56,7 +56,7 @@ async def ζουςς():
 
 @bot.command()
 async def say(*ecco):
-	await bot.say(ecco)
+	await bot.say(*ecco, sep=' ')
 
 #@bot.command()
 #async def give(username, item, quantity)
