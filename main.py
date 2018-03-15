@@ -23,7 +23,7 @@ async def on_ready():
 
 @bot.command()
 async def help():
-	await bot.say('__**ShrekBot 0.1 Commands:**__\n\n```css\n/help      : Shows help for commands\n/kill      : Kill minecraft avatars\n/clear     : Wipes the chat clean\n/at        : Adventure Time\n/choose    : Picks randomly between multiple choices\n/something : Random Stuff\n/zouss     : Zouss City\n/say       : Echoes whatever you say```\n```\nIf you want to suggest more commands, visit the creator at:\nhttps://discord.gg/2anYtuD```')
+	await bot.say('__**ShrekBot 0.1 Commands:**__\n\n```css\n/help      : Shows help for commands\n/kill      : Kill minecraft avatars\n/clear     : Wipes the chat clean\n/at        : Adventure Time\n/choose    : Picks randomly between multiple choices\n/something : Random Stuff\n/zouss     : Zouss City\n/echo      : Echoes whatever you say```\n```\nIf you want to suggest more commands, visit the creator at:\nhttps://discord.gg/2anYtuD```')
 
 @bot.command()
 async def kill(mentioned = 'You'):
@@ -55,8 +55,8 @@ async def ζουςς():
 	await bot.say('ζουςς is love, ζουςς is life.')
 
 @bot.command()
-async def say(*ecco):
-	await bot.say(*ecco, sep=' ')
+async def echo(*, message: str):
+    await bot.say(message)
 
 #@bot.command()
 #async def give(username, item, quantity)
