@@ -39,27 +39,19 @@ async def choose(*choices : str):
 
 @bot.command()
 async def something():
-	somethings = ['I like tea', 'UNDNDERRTALELL', 'Mmmhmmm. Vsauce, Michael Here.']
+	somethings = ['Somebody once told me the world was gonna roll me.\nI ain\'t the sharpest tool in the shed.', 'WHAT ARE YOU DOING IN MY SWAMP?!', 'Shrek is love, Shrek is life.']
 	await bot.say(random.choice(somethings))
 	
 @bot.command()
 async def zouss():
-	await bot.say('ζουςς is love, ζουςς is life.')
+	await bot.say('ζ ο υ ς ς    Ͼ ι τ ψ !')
 	
 @bot.command()
 async def ζουςς():
-	await bot.say('ζουςς is love, ζουςς is life.')
+	await bot.say('ζ ο υ ς ς    Ͼ ι τ ψ !')
 
 @bot.command()
 async def echo(*, message: str):
     await bot.say(message)
 
-#@bot.command()
-#async def give(username, item, quantity)
-#	await bot.say('/give is a work in progress.')
-#
-#@bot.command()
-#async def gamemode(gmemde, user)
-#	await bot.say('/gamemode is a work in progress.')
-#		
 bot.run(os.environ['TOKEN_DISCORD'])
