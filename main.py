@@ -19,7 +19,7 @@ async def on_ready():
 	print('Client User ID:')
 	print(bot.user.id)
 	print('')
-	await bot.change_presence(game=discord.Game(name='Shrek on BluRay'))
+	await bot.change_presence(game=discord.Game(name='Shrek the Third', type=3))
 
 @bot.command()
 async def help():
