@@ -30,10 +30,6 @@ async def kill(*, mentioned = 'You'):
 	await bot.say((mentioned) + ' fell out of the world')
 
 @bot.command()
-async def clr():
-	await bot.say('ﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\n')
-
-@bot.command()
 async def choose(*choices : str):
 	await bot.say((random.choice(choices)) + ', I choose you!')
 
