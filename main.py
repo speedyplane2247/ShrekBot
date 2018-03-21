@@ -23,14 +23,14 @@ async def on_ready():
 
 @bot.command()
 async def help():
-	await bot.say('__**ShrekBot 0.2dev Commands:**__\n\n```css\n/help      : Shows help for commands\n/kill      : Kill minecraft avatars\n/clear     : Wipes the chat clean\n/choose    : Picks randomly between multiple choices\n/something : Random Stuff\n/zouss     : Zouss City\n/echo      : Echoes whatever you say\n/ping      : Useful for testing Internet speed\n/kick      : For getting rid of annoyances```\n```\nIf you want to suggest more commands, visit the creator at:\nhttps://discord.gg/2anYtuD```')
+	await bot.say('__**ShrekBot 0.2dev Commands:**__\n\n```css\n/help      : Shows help for commands\n/kill      : Kill minecraft avatars\n/choose    : Picks randomly between multiple choices\n/something : Random Stuff\n/zouss     : Zouss City\n/echo      : Echoes whatever you say\n/ping      : Useful for testing Internet speed\n/kick      : For getting rid of annoyances```\n```\nIf you want to suggest more commands, visit the creator at:\nhttps://discord.gg/2anYtuD```')
 
 @bot.command()
 async def kill(*, mentioned = 'You'):
 	await bot.say((mentioned) + ' fell out of the world')
 
 @bot.command()
-async def clear():
+async def clr():
 	await bot.say('ﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\nﾠ\n')
 
 @bot.command()
