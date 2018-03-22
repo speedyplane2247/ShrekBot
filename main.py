@@ -56,9 +56,12 @@ async def ping():
 
 @bot.command(pass_context = True)
 async def kick(ctx, userName: discord.User):
-	if ctx.message.author.server_permissions.kick_members:
-		await bot.kick(userName)
-	else:
-		await bot.say('Sorry, you do not have permissions to do that!')
+	try:
+		if ctx.message.author.server_permissions.kick_members:
+			await bot.kick(userName)
+		else:
+			await bot.say('Sorry, you do not have permissions to do that!')
+	except:
+			await bot.say('Sorry, but I couldn\'t do that. Maybe check my role position and move it towards the top.')
 
 bot.run(os.environ['TOKEN_DISCORD'])
