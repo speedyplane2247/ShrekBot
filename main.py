@@ -59,12 +59,10 @@ async def kick(ctx, userName: discord.User):
 	try:
 		if ctx.message.author.server_permissions.kick_members:
 			await bot.kick(userName)
-			await bot.say(userName + "has been kicked.")
-			with open('WhatAreYouDoingInMySwamp.gif', 'rb') as art:
-				await client.send_file(channel, art)
+			await bot.upload('WhatAreYouDoingInMySwamp.gif')
 		else:
 			await bot.say('Sorry, you do not have permissions to do that!')
 	except:
-			await bot.say('Sorry, but I couldn\'t do that. Maybe check my role position and move it towards the top.')
+			await bot.say('Sorry, but an unexpected error occured. Make sure I have the permissions to kick.')
 
 bot.run(os.environ['TOKEN_DISCORD'])
