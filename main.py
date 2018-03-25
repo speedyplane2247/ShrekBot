@@ -59,6 +59,7 @@ async def kick(ctx, userName: discord.User):
 	try:
 		if ctx.message.author.server_permissions.kick_members:
 			await bot.kick(userName)
+			await bot.say('That fool just got kicked from my swamp!')
 			await bot.upload('WhatAreYouDoingInMySwamp.gif')
 		else:
 			await bot.say('Sorry, you do not have permissions to do that!')
