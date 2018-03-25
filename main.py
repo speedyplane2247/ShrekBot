@@ -58,10 +58,10 @@ async def ping():
 async def kick(ctx, userName: discord.User):
 	try:
 		if ctx.message.author.server_permissions.kick_members:
-			with open('WhatAreYouDoingInMySwamp.gif', 'rb') as art:
 			await bot.kick(userName)
 			await bot.say(userName + "has been kicked.")
-			await client.send_file(channel, art)
+			with open('WhatAreYouDoingInMySwamp.gif', 'rb') as art:
+				await client.send_file(channel, art)
 		else:
 			await bot.say('Sorry, you do not have permissions to do that!')
 	except:
