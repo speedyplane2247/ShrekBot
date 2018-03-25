@@ -17,6 +17,10 @@ A simple bot for Discord written with discord.py
 /zouss     : Zouss City
 
 /echo      : Echoes whatever you say
+
+/ping      : Useful for testing
+
+/kick      : Good for getting rid of nuisances
 ```
 **Links:**
 
