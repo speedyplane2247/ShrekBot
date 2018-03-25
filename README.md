@@ -8,8 +8,6 @@ A simple bot for Discord written with discord.py
 
 /kill      : Kill minecraft avatars
 
-/clear     : Wipes the chat clean
-
 /choose    : Picks randomly between multiple choices
 
 /something : Random Stuff
