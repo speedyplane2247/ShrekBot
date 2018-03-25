@@ -4,21 +4,21 @@ A simple bot for Discord written with discord.py
 
 **Current Commands:**
 ```
-/help      : Shows help for commands
+sh!help      : Shows help for commands
 
-/kill      : Kill minecraft avatars
+sh!kill      : Kill minecraft avatars
 
-/choose    : Picks randomly between multiple choices
+sh!choose    : Picks randomly between multiple choices
 
-/something : Random Stuff
+sh!something : Random Stuff
 
-/zouss     : Zouss City
+sh!zouss     : Zouss City
 
-/echo      : Echoes whatever you say
+sh!echo      : Echoes whatever you say
 
-/ping      : Useful for testing Internet speed
+sh!ping      : Useful for testing Internet speed
 
-/kick      : For getting rid of annoyances
+sh!kick      : For getting rid of annoyances
 ```
 **Links:**
 
