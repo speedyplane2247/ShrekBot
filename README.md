@@ -18,9 +18,9 @@ A simple bot for Discord written with discord.py
 
 /echo      : Echoes whatever you say
 
-/ping      : Useful for testing
+/ping      : Useful for testing Internet speed
 
-/kick      : Good for getting rid of nuisances
+/kick      : For getting rid of annoyances
 ```
 **Links:**
 
