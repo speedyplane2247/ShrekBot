@@ -1,4 +1,4 @@
-#ShrekBot for Discord 0.2dev
+#ShrekBot for Discord 0.2
 #By @AlexApps#9295
 
 import discord
@@ -11,7 +11,7 @@ bot.remove_command('help')
 
 @bot.event
 async def on_ready():
-	print('ShrekBot 0.2dev')
+	print('ShrekBot 0.2')
 	print('')
 	print('Logged in as:')
 	print(bot.user.name)
@@ -23,7 +23,7 @@ async def on_ready():
 
 @bot.command()
 async def help():
-	await bot.say('__**ShrekBot 0.2dev Commands:**__\n\n```css\n/help      : Shows help for commands\n/kill      : Kill minecraft avatars\n/choose    : Picks randomly between multiple choices\n/something : Random Stuff\n/zouss     : Zouss City\n/echo      : Echoes whatever you say\n/ping      : Useful for testing Internet speed\n/kick      : For getting rid of annoyances```\n```\nIf you want to suggest more commands, visit the creator at:\nhttps://discord.gg/2anYtuD```')
+	await bot.say('__**ShrekBot 0.2 Commands:**__\n\n```css\n/help      : Shows help for commands\n/kill      : Kill minecraft avatars\n/choose    : Picks randomly between multiple choices\n/something : Random Stuff\n/zouss     : Zouss City\n/echo      : Echoes whatever you say\n/ping      : Useful for testing Internet speed\n/kick      : For getting rid of annoyances```\n```\nIf you want to suggest more commands, visit the creator at:\nhttps://discord.gg/2anYtuD```')
 
 @bot.command()
 async def kill(*, mentioned = 'You'):
@@ -58,7 +58,10 @@ async def ping():
 async def kick(ctx, userName: discord.User):
 	try:
 		if ctx.message.author.server_permissions.kick_members:
+			with open('WhatAreYouDoingInMySwamp.gif', 'rb') as art:
 			await bot.kick(userName)
+			await bot.say(userName + "has been kicked.")
+			await client.send_file(channel, art)
 		else:
 			await bot.say('Sorry, you do not have permissions to do that!')
 	except:
