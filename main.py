@@ -6,7 +6,7 @@ from discord.ext import commands
 import random
 import os
 from PIL import Image
-import datetime
+import time
 
 bot = commands.Bot(command_prefix='sh!')
 bot.remove_command('help')
