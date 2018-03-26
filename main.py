@@ -69,6 +69,6 @@ async def kick(ctx, userName: discord.User):
 @bot.command()
 async def hex():
 	r = lambda: random.randint(0,255)
-	bot.say('#%02X%02X%02X' % (r(),r(),r()))
+	await bot.say('#%02X%02X%02X' % (r(),r(),r()))
 
 bot.run(os.environ['TOKEN_DISCORD'])
