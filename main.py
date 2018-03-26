@@ -53,8 +53,8 @@ async def echo(*, message: str):
 	await bot.say(message)
 
 @bot.command()
-async def ping():
-	await bot.say('Pong!')
+async def ping(ctx):
+    return await bot.send('Pong! {0}'.format(round(bot.latency, 1))
 
 @bot.command(pass_context = True)
 async def kick(ctx, userName: discord.User):
