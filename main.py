@@ -71,7 +71,7 @@ async def kick(ctx, userName: discord.User):
 async def hex():
 	r = lambda: random.randint(0,255)
 	hexcode = '#%02X%02X%02X' % (r(),r(),r())
-	await bot.say(hexcode)
+	await bot.say('`' + hexcode + '`')
 	im = Image.new("RGB", (64,64), hexcode)
 	im.save("color.png")
 	await bot.upload('color.png')
