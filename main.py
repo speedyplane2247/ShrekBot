@@ -6,6 +6,7 @@ from discord.ext import commands
 import random
 import os
 from PIL import Image
+import colorsys
 
 bot = commands.Bot(command_prefix='sh!')
 bot.remove_command('help')
@@ -70,9 +71,11 @@ async def kick(ctx, userName: discord.User):
 @bot.command()
 async def hex():
 	r = lambda: random.randint(0,255)
-	hexcode = '#%02X%02X%02X' % (r(),r(),r())
-	await bot.say('`' + hexcode + '`')
-	im = Image.new("RGB", (64,64), hexcode)
+	hexcode = '%02X%02X%02X' % (r(),r(),r())
+	rgbcode = tuple(int(hexcode[i:i+2], 16) for i in (0, 2 ,4))
+	hsvcode = colorsys.rgb_to_hsv(rgbcode)
+	await bot.say('`Hex: #' + hexcode + '`\n`RGB: ' + rgbcode + '`\n`HSV: ' + hsvcode + '`')
+	im = Image.new("RGB", (64,64), '#' + hexcode)
 	im.save("color.png")
 	await bot.upload('color.png')
 
