@@ -5,6 +5,7 @@ import discord
 from discord.ext import commands
 import random
 import os
+from PIL import Image
 
 bot = commands.Bot(command_prefix='sh!')
 bot.remove_command('help')
@@ -69,6 +70,10 @@ async def kick(ctx, userName: discord.User):
 @bot.command()
 async def hex():
 	r = lambda: random.randint(0,255)
-	await bot.say('#%02X%02X%02X' % (r(),r(),r()))
+	'#%02X%02X%02X' % (r(),r(),r()) = hexcode
+	await bot.say(hexcode)
+	im = Image.new("RGB", (64,64), hexcode)
+	im.save("color.png")
+	await bot.upload('color.png')
 
 bot.run(os.environ['TOKEN_DISCORD'])
