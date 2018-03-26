@@ -76,6 +76,6 @@ async def hex():
 	
 @bot.command()
 async def ping():
-	await bot.say('Pong! {0}'.format(round(bot.latency, 1))
+	await bot.say('Pong! {0}'.format(round(bot.latency, 1)))
 
 bot.run(os.environ['TOKEN_DISCORD'])
