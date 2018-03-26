@@ -76,8 +76,10 @@ async def hex():
 	
 @bot.command(pass_context=True)
 async def ping(ctx):
-    now = datetime.datetime.utcnow()
-    delta = now-ctx.message.timestamp
-    await bot.say('{}ms'.format(delta(microseconds=1)))
+	channel = ctx.message.channel
+        t1 = time.perf_counter()
+        await self.bot.send_typing(channel)
+        t2 = time.perf_counter()
+        await self.bot.say("Pong: {}ms".format(round((t2-t1)*1000)))
 
 bot.run(os.environ['TOKEN_DISCORD'])
