@@ -6,7 +6,7 @@ from discord.ext import commands
 import random
 import os
 from PIL import Image
-import colorsys
+import datetime
 
 bot = commands.Bot(command_prefix='sh!')
 bot.remove_command('help')
@@ -74,8 +74,10 @@ async def hex():
 	im.save("color.png")
 	await bot.upload('color.png')
 	
-@bot.command()
-async def ping():
-	await bot.say('Pong! {0}'.format(round(bot.latency, 1)))
+@bot.command(pass_context=True)
+async def ping(ctx):
+    now = datetime.datetime.utcnow()
+    delta = now-ctx.message.timestamp
+    await bot.say('{}ms'.format(delta(microseconds=1)))
 
 bot.run(os.environ['TOKEN_DISCORD'])
