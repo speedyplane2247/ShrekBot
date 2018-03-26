@@ -73,5 +73,9 @@ async def hex():
 	im = Image.new("RGB", (64,64), '#' + hexcode)
 	im.save("color.png")
 	await bot.upload('color.png')
+	
+@bot.command()
+async def ping():
+	await bot.say('Pong! {0}'.format(round(bot.latency, 1))
 
 bot.run(os.environ['TOKEN_DISCORD'])
