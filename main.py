@@ -52,10 +52,6 @@ async def ζουςς():
 async def echo(*, message: str):
 	await bot.say(message)
 
-@bot.command()
-async def ping():
-	await bot.send('Pong! {0}'.format(round(bot.latency, 1))
-
 @bot.command(pass_context = True)
 async def kick(ctx, userName: discord.User):
 	try:
