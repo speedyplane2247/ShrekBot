@@ -72,9 +72,7 @@ async def kick(ctx, userName: discord.User):
 async def hex():
 	r = lambda: random.randint(0,255)
 	hexcode = '%02X%02X%02X' % (r(),r(),r())
-	rgbcode = str(tuple(int(hexcode[i:i+2], 16) for i in (0, 2 ,4))).lstrip('\(').lstrip('\)')
-#	splitrgbcode = rgbcode.split(',')
-#	hsvcode = colorsys.rgb_to_hsv(splitrgbcode)
+	rgbcode = str(tuple(int(hexcode[i:i+2], 16) for i in (0, 2 ,4)))
 	await bot.say('`Hex: #' + hexcode + '`\n`RGB: ' + rgbcode + '`')
 	im = Image.new("RGB", (64,64), '#' + hexcode)
 	im.save("color.png")
