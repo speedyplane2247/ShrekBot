@@ -7,6 +7,7 @@ import random
 import os
 from PIL import Image
 import time
+import profanity
 
 bot = commands.Bot(command_prefix='sh!')
 bot.remove_command('help')
@@ -28,12 +29,18 @@ async def help():
 	await bot.say('__**ShrekBot 0.2 Commands:**__\n\n```css\nsh!help      : Shows help for commands\nsh!kill      : Kill minecraft avatars\nsh!choose    : Picks randomly between multiple choices\nsh!something : Random Stuff\nsh!zouss     : Zouss City\nsh!echo      : Echoes whatever you say\nsh!ping      : Useful for testing Internet speed\nsh!kick      : For getting rid of annoyances\nsh!hex       : Picks a random hex color```\n```\nIf you want to suggest more commands, visit the creator at:\nhttps://discord.gg/2anYtuD```')
 
 @bot.command()
-async def kill(*, mentioned = 'You'):
-	await bot.say((mentioned) + ' fell out of the world')
+async def kill(*mentioned = 'You'):
+	if profanity.contains_profanity(mentioned)
+		await bot.say("Watch your language!")
+	else
+		await bot.say((mentioned) + ' fell out of the world')
 
 @bot.command()
 async def choose(*choices : str):
-	await bot.say((random.choice(choices)) + ', I choose you!')
+	if profanity.contains_profanity(choices)
+		await bot.say("Watch your language!")
+	else
+		await bot.say((random.choice(choices)) + ', I choose you!')
 
 @bot.command()
 async def something():
@@ -50,7 +57,10 @@ async def ζουςς():
 
 @bot.command()
 async def echo(*, message: str):
-	await bot.say(message)
+	if profanity.contains_profanity(message)
+		await bot.say("Watch your language!")
+	else
+		await bot.say(message)
 
 @bot.command(pass_context = True)
 async def kick(ctx, userName: discord.User):
