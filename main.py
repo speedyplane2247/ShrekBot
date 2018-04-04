@@ -7,7 +7,7 @@ import random
 import os
 from PIL import Image
 import time
-import profanity
+from profanity import profanity
 
 bot = commands.Bot(command_prefix='sh!')
 bot.remove_command('help')
