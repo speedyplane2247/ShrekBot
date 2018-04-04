@@ -7,7 +7,6 @@ import random
 import os
 from PIL import Image
 import time
-from profanity import profanity
 
 bot = commands.Bot(command_prefix='sh!')
 bot.remove_command('help')
@@ -30,17 +29,11 @@ async def help():
 
 @bot.command()
 async def kill(*, mentioned = 'You'):
-	if profanity.contains_profanity(mentioned):
-		await bot.say("Watch your language!")
-	else:
-		await bot.say((mentioned) + ' fell out of the world')
+	await bot.say((mentioned) + ' fell out of the world')
 
 @bot.command()
 async def choose(*choices : str):
-	if profanity.contains_profanity(choices):
-		await bot.say("Watch your language!")
-	else:
-		await bot.say((random.choice(choices)) + ', I choose you!')
+	await bot.say((random.choice(choices)) + ', I choose you!')
 
 @bot.command()
 async def something():
@@ -57,10 +50,7 @@ async def ζουςς():
 
 @bot.command()
 async def echo(*, message: str):
-	if profanity.contains_profanity(message):
-		await bot.say("Watch your language!")
-	else:
-		await bot.say(message)
+	await bot.say(message)
 
 @bot.command(pass_context = True)
 async def kick(ctx, userName: discord.User):
