@@ -30,16 +30,16 @@ async def help():
 
 @bot.command()
 async def kill(*, mentioned = 'You'):
-	if profanity.contains_profanity(mentioned)
+	if profanity.contains_profanity(mentioned):
 		await bot.say("Watch your language!")
-	else
+	else:
 		await bot.say((mentioned) + ' fell out of the world')
 
 @bot.command()
 async def choose(*choices : str):
-	if profanity.contains_profanity(choices)
+	if profanity.contains_profanity(choices):
 		await bot.say("Watch your language!")
-	else
+	else:
 		await bot.say((random.choice(choices)) + ', I choose you!')
 
 @bot.command()
@@ -57,9 +57,9 @@ async def ζουςς():
 
 @bot.command()
 async def echo(*, message: str):
-	if profanity.contains_profanity(message)
+	if profanity.contains_profanity(message):
 		await bot.say("Watch your language!")
-	else
+	else:
 		await bot.say(message)
 
 @bot.command(pass_context = True)
