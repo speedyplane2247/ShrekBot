@@ -85,6 +85,6 @@ async def ping(ctx):
 	
 @bot.command()
 async def google(*, searchquery: str):
-	await bot.say('https://lmgtfy.com/?iie=1&q=' + urllib.parse.quote_plus(searchquery))
+	await bot.say('<https://lmgtfy.com/?iie=1&q=' + urllib.parse.quote_plus(searchquery) + '>')
 
 bot.run(os.environ['TOKEN_DISCORD'])
