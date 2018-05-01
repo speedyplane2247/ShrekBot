@@ -84,8 +84,7 @@ async def ping(ctx):
 	await bot.say("Pong: {}ms".format(round((t2-t1)*1000)))
 	
 @bot.command()
-async def google(*, message: str):
-	url = str('https://lmgtfy.com/?iie=1&q=' + urllib.parse.quote_plus(message))
-	bot.say(url)
+async def google(*, searchquery: str):
+	await bot.say('https://lmgtfy.com/?iie=1&q=' + urllib.parse.quote_plus(searchquery))
 
 bot.run(os.environ['TOKEN_DISCORD'])
