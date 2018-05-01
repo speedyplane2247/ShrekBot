@@ -83,8 +83,8 @@ async def ping(ctx):
 	t2 = time.perf_counter()
 	await bot.say("Pong: {}ms".format(round((t2-t1)*1000)))
 	
-@bot.command():
-async def google(*, message: str)
+@bot.command()
+async def google(*, message: str):
 	bot.say('http://lmgtfy.com/?iie=1&q=' + urllib.parse.quote_plus(message))
 
 bot.run(os.environ['TOKEN_DISCORD'])
