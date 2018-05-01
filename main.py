@@ -26,7 +26,7 @@ async def on_ready():
 
 @bot.command()
 async def help():
-	await bot.say('__**ShrekBot 0.2 Commands:**__\n\n```css\nsh!help      : Shows help for commands\nsh!kill      : Kill minecraft avatars\nsh!choose    : Picks randomly between multiple choices\nsh!something : Random Stuff\nsh!zouss     : Zouss City\nsh!echo      : Echoes whatever you say\nsh!ping      : Useful for testing Internet speed\nsh!kick      : For getting rid of annoyances\nsh!hex       : Picks a random hex color\nsh!google    : Search the web if you have a question to answer```\n```\nIf you want to suggest more commands, visit the creator at:\nhttps://discord.gg/2anYtuD```')
+	await bot.say('__**ShrekBot 0.2 Commands:**__\n\n```css\nsh!help      : Shows help for commands\nsh!kill      : Kill minecraft avatars\nsh!choose    : Picks randomly between multiple choices\nsh!something : Random Stuff\nsh!zouss     : Zouss City\nsh!echo      : Echoes whatever you say\nsh!ping      : Useful for testing Internet speed\nsh!kick      : For getting rid of annoyances\nsh!hex       : Picks a random hex color\nsh!google    : Searches the web\nsh!lmgtfy    : If somebody stupid has a question```\n```\nIf you want to suggest more commands, visit the creator at:\nhttps://discord.gg/2anYtuD```')
 
 @bot.command()
 async def kill(*, mentioned = 'You'):
@@ -84,7 +84,11 @@ async def ping(ctx):
 	await bot.say("Pong: {}ms".format(round((t2-t1)*1000)))
 	
 @bot.command()
-async def google(*, searchquery: str):
+async def lmgtfy(*, searchquery: str):
 	await bot.say('<https://lmgtfy.com/?iie=1&q=' + urllib.parse.quote_plus(searchquery) + '>')
+
+@bot.command()
+async def google(*, searchquery: str):
+	await bot.say('<https://www.google.com/search?q=' + urllib.parse.quote_plus(searchquery) + '>')
 
 bot.run(os.environ['TOKEN_DISCORD'])
