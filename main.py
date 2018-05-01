@@ -7,6 +7,7 @@ import random
 import os
 from PIL import Image
 import time
+import urllib.parse
 
 bot = commands.Bot(command_prefix='sh!')
 bot.remove_command('help')
@@ -25,7 +26,7 @@ async def on_ready():
 
 @bot.command()
 async def help():
-	await bot.say('__**ShrekBot 0.2 Commands:**__\n\n```css\nsh!help      : Shows help for commands\nsh!kill      : Kill minecraft avatars\nsh!choose    : Picks randomly between multiple choices\nsh!something : Random Stuff\nsh!zouss     : Zouss City\nsh!echo      : Echoes whatever you say\nsh!ping      : Useful for testing Internet speed\nsh!kick      : For getting rid of annoyances\nsh!hex       : Picks a random hex color```\n```\nIf you want to suggest more commands, visit the creator at:\nhttps://discord.gg/2anYtuD```')
+	await bot.say('__**ShrekBot 0.2 Commands:**__\n\n```css\nsh!help      : Shows help for commands\nsh!kill      : Kill minecraft avatars\nsh!choose    : Picks randomly between multiple choices\nsh!something : Random Stuff\nsh!zouss     : Zouss City\nsh!echo      : Echoes whatever you say\nsh!ping      : Useful for testing Internet speed\nsh!kick      : For getting rid of annoyances\nsh!hex       : Picks a random hex color\nsh!google    : Search the web if you have a question to answer```\n```\nIf you want to suggest more commands, visit the creator at:\nhttps://discord.gg/2anYtuD```')
 
 @bot.command()
 async def kill(*, mentioned = 'You'):
@@ -81,5 +82,9 @@ async def ping(ctx):
 	await bot.send_typing(channel)
 	t2 = time.perf_counter()
 	await bot.say("Pong: {}ms".format(round((t2-t1)*1000)))
+	
+@bot.command():
+async def google(*, message: str)
+	bot.say('http://lmgtfy.com/?iie=1&q=' + urllib.parse.quote_plus(message))
 
 bot.run(os.environ['TOKEN_DISCORD'])
