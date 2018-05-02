@@ -6,7 +6,7 @@ A simple bot for Discord written with discord.py
 ```
 sh!help      : Shows help for commands
 
-sh!kill      : Kill minecraft avatars
+sh!kill      : Be an assassin
 
 sh!choose    : Picks randomly between multiple choices
 
@@ -19,6 +19,12 @@ sh!echo      : Echoes whatever you say
 sh!ping      : Useful for testing Internet speed
 
 sh!kick      : For getting rid of annoyances
+
+sh!hex       : Picks a random hex color
+
+sh!google    : Searches the web (or images if typed first)
+
+sh!lmgtfy    : If somebody has a really stupid question
 ```
 **Links:**
 
