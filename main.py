@@ -8,6 +8,7 @@ import os
 from PIL import Image
 import time
 import urllib.parse
+import re
 
 bot = commands.Bot(command_prefix='sh!')
 bot.remove_command('help')
@@ -94,5 +95,16 @@ async def google(*, searchquery: str):
 		await bot.say('<https://www.google.com/search?tbm=isch&q=' + urllib.parse.quote_plus(searchquery[7:]) + '>')
 	else:
 		await bot.say('<https://www.google.com/search?q=' + urllib.parse.quote_plus(searchquery) + '>')
+		
+@bot.command()
+async def emojify(*, text)
+	emojified = ''
+	formatted = re.sub(r'[^a-zA-Z]', "", word).lower()
+	if formatted == '':
+		await bot.say('Remember to say what you want to convert!')
+	else:
+		for i in formatted:
+			emojified += ':regional_indicator_{}: '.format(i)
+		await bot.say('`'+emojified+'`')
 
 bot.run(os.environ['TOKEN_DISCORD'])
