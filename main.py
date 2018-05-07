@@ -105,6 +105,9 @@ async def emojify(*, text):
 	else:
 		for i in formatted:
 			emojified += ':regional_indicator_{}: '.format(i)
-		await bot.say('`'+emojified+'`')
+		if len(emojified) + 2 >= 2000:
+			await bot.say('Your message in emojis exceeds 2000 characters!')
+		else:
+			await bot.say('`'+emojified+'`')
 
 bot.run(os.environ['TOKEN_DISCORD'])
