@@ -99,7 +99,7 @@ async def google(*, searchquery: str):
 @bot.command()
 async def emojify(*, text):
 	emojified = ''
-	formatted = re.sub(r'[^a-zA-Z]', "", word).lower()
+	formatted = re.sub(r'[^a-zA-Z]', "", text).lower()
 	if formatted == '':
 		await bot.say('Remember to say what you want to convert!')
 	else:
