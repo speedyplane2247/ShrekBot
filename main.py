@@ -97,7 +97,7 @@ async def google(*, searchquery: str):
 		await bot.say('<https://www.google.com/search?q=' + urllib.parse.quote_plus(searchquery) + '>')
 		
 @bot.command()
-async def emojify(*, text)
+async def emojify(*, text):
 	emojified = ''
 	formatted = re.sub(r'[^a-zA-Z]', "", word).lower()
 	if formatted == '':
