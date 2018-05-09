@@ -111,6 +111,6 @@ async def emojify(*, text):
 		if len(emojified) + 2 >= 2000:
 			await bot.say('Your message in emojis exceeds 2000 characters!')
 		else:
-			await bot.say('`'+emojified+'`')
+			await bot.send_message(message.author, '`'+emojified+'`')
 
 bot.run(os.environ['TOKEN_DISCORD'])
