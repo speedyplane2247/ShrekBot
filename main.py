@@ -105,7 +105,7 @@ async def emojify(*, text):
 	else:
 		for i in formatted:
 			if i == ' ':
-				emojified += ' '
+				emojified += '     '
 			else:
 				emojified += ':regional_indicator_{}: '.format(i)
 		if len(emojified) + 2 >= 2000:
