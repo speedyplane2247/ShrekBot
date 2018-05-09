@@ -97,7 +97,8 @@ async def google(*, searchquery: str):
 		await bot.say('<https://www.google.com/search?q=' + urllib.parse.quote_plus(searchquery) + '>')
 		
 @bot.command()
-async def emojify(*, text):
+async def emojify(ctx, *text):
+	author = ctx.message.author
 	emojified = '⬇ Copy and paste this: ⬇\n'
 	formatted = re.sub(r'[^a-zA-Z ]+$', "", text).lower()
 	if formatted == '':
@@ -111,6 +112,6 @@ async def emojify(*, text):
 		if len(emojified) + 2 >= 2000:
 			await bot.say('Your message in emojis exceeds 2000 characters!')
 		else:
-			await bot.send_message(message.author, '`'+emojified+'`')
+			await bot.send_message(author, '`'+emojified+'`')
 
 bot.run(os.environ['TOKEN_DISCORD'])
