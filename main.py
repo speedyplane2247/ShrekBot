@@ -97,7 +97,7 @@ async def google(*, searchquery: str):
 		await bot.say('<https://www.google.com/search?q=' + urllib.parse.quote_plus(searchquery) + '>')
 		
 @bot.command()
-async def emojify(ctx, *text):
+async def emojify(ctx, *, text: str):
 	author = ctx.message.author
 	emojified = '⬇ Copy and paste this: ⬇\n'
 	formatted = re.sub(r'[^a-zA-Z ]+$', "", text).lower()
