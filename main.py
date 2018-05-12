@@ -100,8 +100,8 @@ async def google(*, searchquery: str):
 async def emojify(ctx, *, text: str):
 	author = ctx.message.author
 	emojified = '⬇ Copy and paste this: ⬇\n'
-	formatted = re.sub(r'[^a-zA-Z ]+$', "", text).lower()
-	if formatted == '':
+	formatted = re.sub(r'[^A-Za-z ]+', "", text).lower()
+	if text == '':
 		await bot.say('Remember to say what you want to convert!')
 	else:
 		for i in formatted:
@@ -111,6 +111,8 @@ async def emojify(ctx, *, text: str):
 				emojified += ':regional_indicator_{}: '.format(i)
 		if len(emojified) + 2 >= 2000:
 			await bot.say('Your message in emojis exceeds 2000 characters!')
+		if len(emojified) <= 25:
+			await bot.say('Your message could not be converted!')
 		else:
 			await bot.send_message(author, '`'+emojified+'`')
 
