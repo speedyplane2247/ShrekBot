@@ -1,6 +1,10 @@
 # ShrekBot
 A simple bot for Discord written with discord.py
 
+[![alt text][image]][hyperlink]
+
+  [hyperlink]: https://discord.gg/2anYtuD
+  [image]: https://discordapp.com/api/guilds/421840338907299841/widget.png?style=banner2 (Join ShrekBot Official Today!)
 
 **Current Commands:**
 ```
