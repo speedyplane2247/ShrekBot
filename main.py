@@ -3,7 +3,7 @@
 
 import discord
 from discord.ext import commands
-from random import *
+import random
 import os
 from PIL import Image
 import time
