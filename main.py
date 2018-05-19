@@ -115,7 +115,7 @@ async def emojify(ctx, *, text: str):
 
 @bot.command(help='wow such animated')
 async def animatedemoji(ctx, name = 'Minga', id:str = '443632155957133312'):
-	await ctx.send('<:{}:{}>'.format(name, id))
+	await ctx.send('<a:{}:{}>'.format(name, id))
 
 @bot.command(help='Global emoji test')
 async def globalemoji(ctx, name = 'oof', id:str = '447195482293272578'):
