@@ -114,10 +114,10 @@ async def emojify(ctx, *, text: str):
 			await author.send('`'+emojified+'`')
 
 @bot.command(help='wow such animated')
-async def animatedemoji(name = 'Minga', id:str = '443632155957133312')
+async def animatedemoji(name = 'Minga', id:str = '443632155957133312'):
 	await ctx.send(f'<a:{name}:{id}>')
 
 @bot.command(help='Nitro FTW')
-async def globalemoji(name = 'shrekbot', id:str = '447187444257914892')
+async def globalemoji(name = 'shrekbot', id:str = '447187444257914892'):
 	await ctx.send(f'<:{name}:{id}>')
 bot.run(os.environ['TOKEN_DISCORD'])
