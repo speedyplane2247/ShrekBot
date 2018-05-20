@@ -126,6 +126,6 @@ async def egg(ctx):
 
 @bot.command(help='Secret debug commands')
 async def clearlog(ctx):
-	print(message.author)
+	print(ctx.author)
 
 bot.run(os.environ['TOKEN_DISCORD'])
