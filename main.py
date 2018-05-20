@@ -25,7 +25,7 @@ async def on_ready():
 
 @bot.command(help='Shows help for commands')
 async def help(ctx):
-	await ctx.send('__**ShrekBot 0.2 Commands:**__\n\n```css\nsh!help      : Shows help for commands\nsh!kill      : Be an assassin\nsh!choose    : Picks randomly between multiple choices\nsh!something : Random Stuff\nsh!zouss     : Zouss City\nsh!echo      : Echoes whatever you say\nsh!ping      : Useful for testing Internet speed\nsh!kick      : For getting rid of annoyances\nsh!hex       : Picks a random hex color\nsh!google    : Searches the web (or images if typed first)\nsh!lmgtfy    : Let me Google that for you\nsh!emojify   : For when plain text just is not enough\nsh!dice      : Leave it to luck```\n```\nIf you want to suggest more commands, visit the creator at:\nhttps://discord.gg/2anYtuD```')
+	await ctx.send('__**ShrekBot 0.2 Commands:**__\n\n```css\nsh!help      : Shows help for commands\nsh!kill      : Be an assassin\nsh!choose    : Picks randomly between multiple choices\nsh!something : Random Stuff\nsh!zouss     : Zouss City\nsh!echo      : Echoes whatever you say\nsh!ping      : Useful for testing Internet speed\nsh!kick      : For getting rid of annoyances\nsh!hex       : Picks a random hex color\nsh!google    : Searches the web (or images if typed first)\nsh!lmgtfy    : Let me Google that for you\nsh!emojify   : For when plain text just is not enough\nsh!dice      : Leave it to luck\nsh!egg       : For those free range fellas```\n```\nIf you want to suggest more commands, visit the creator at:\nhttps://discord.gg/2anYtuD```')
 
 @bot.command(help='Be an assassin')
 async def kill(ctx, *, user = 'You'):
@@ -109,5 +109,9 @@ async def emojify(ctx, *, text: str):
 			await ctx.send('Your message could not be converted!')
 		else:
 			await author.send('`'+emojified+'`')
+
+@bot.command(help='For those free range fellas')
+async def egg(ctx):
+	await ctx.send('100% Free range!')
 
 bot.run(os.environ['TOKEN_DISCORD'])
