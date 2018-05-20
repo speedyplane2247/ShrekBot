@@ -10,9 +10,7 @@ from PIL import Image
 import time
 import urllib.parse
 import re
-import logging
-
-logging.basicConfig( filename="main.log",filemode='w',level=logging.DEBUG,format= '%(asctime)s - %(levelname)s - %(message)s',)
+import requests
 
 bot = commands.Bot(command_prefix='sh!', case_insensitive=True)
 
@@ -124,26 +122,12 @@ async def emojify(ctx, *, text: str):
 async def egg(ctx):
 	await ctx.send('100% Free range!')
 
-@bot.command(help='Secret debug commands')
-async def clearlog(ctx):
+@bot.command(help='Secret debug commands', aliases='restart')
+async def reboot(ctx):
 	if ctx.author.id != 292383975048216576:
-		await ctx.send('This is an exclusive bot dev only command!')
+		await ctx.send('This is an exclusive bot developer only command!')
 	else:
-		try:
-			open('main.log', 'w').close()
-			await ctx.send('All gone!')
-		except:
-			await ctx.send('An error occured! oof')
-
-@bot.command(help='Secret debug commands')
-async def printlog(ctx):
-	if ctx.author.id != 292383975048216576:
-		await ctx.send('This is an exclusive bot dev only command!')
-	else:
-		try:
-			log = open('main.log', 'r').read()
-			await ctx.send('```{}```'.format(log))
-		except:
-			await ctx.send('An error occured! oof')
+		headers = {'Content-Type':'application/json','Accept':'application/vnd.heroku+json; version=3','Authorization':'Bearer {}'.format(os.environ['HEROKU_API_KEY'])}
+		requests.delete('https://api.heroku.com/apps/shrek-bot/dynos/worker', headers=headers)
 
 bot.run(os.environ['TOKEN_DISCORD'])
