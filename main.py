@@ -10,6 +10,9 @@ from PIL import Image
 import time
 import urllib.parse
 import re
+import logging
+
+logging.basicConfig( filename="main.log",filemode='w',level=logging.DEBUG,format= '%(asctime)s - %(levelname)s - %(message)s',)
 
 bot = commands.Bot(command_prefix='sh!', case_insensitive=True)
 
@@ -120,5 +123,9 @@ async def emojify(ctx, *, text: str):
 @bot.command(help='For those free range fellas')
 async def egg(ctx):
 	await ctx.send('100% Free range!')
+
+@bot.command(help='Secret debug commands')
+async def clearlog(ctx):
+	print(message.author)
 
 bot.run(os.environ['TOKEN_DISCORD'])
