@@ -16,12 +16,21 @@ bot = commands.Bot(command_prefix='sh!', case_insensitive=True)
 version = '0.2'
 bot.remove_command("help")
 
+listening = ['All Star - Smash Mouth','I\'m a believer - Smash Mouth','the blissful sounds of Lord Farquaad','the screeches of Donkey']
+playing = ['Shrek Swamp Kart Speedway','Shrek Smash n\' Crash Racing','Shrek Kart','DreamWorks Super Star Kartz','Shrek: Treasure Hunt','Shrek Super Party','Shrek\'s Carnival Craze Party Games','Shrek: Fairy Tale Freakdown','Shrek Game Land Activity Center','Shrek: Hassle at the Castle','Shrek Extra Large','Shrek: Reekin\' Havoc','Shrek 2 Activity Center: Twisted Fairy Tale Fun','Shrek 2: Team Action','Shrek 2: Beg for Mercy','Shrek SuperSlam','Shrek n\' Roll','Shrek: Ogres & Dronkeys','Puss in Boots','Fruit Ninja: Puss in Boots','Shrek\'s Fairytale Kingdom','Shrek Alarm','Shrek: Dragon\'s Tale','Shrek the Third: Arthur\'s School Day Adventure','Shrek the Third: The Search for Arthur']
+watching = ['Shrek','Shrek in the Swamp Karaoke Dance Party','Shrek 2','Shrek the Third','Shrek the Halls','Shrek Forever After','Scared Shrekless','Puss in boots']
+
+thingytothingy = {'listening': discord.ActivityType.listening, 'playing': discord.ActivityType.playing, 'watching': discord.ActivityType.watching}
+
+presencelists = ['listening','playing','watching']
+
 @bot.event
 async def on_ready():
 	print('ShrekBot '+version)
 	print('Logged in as: '+bot.user.name)
 	print('Client User ID: '+str(bot.user.id))
-	await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="All Star - Smash Mouth"))
+	thechosenone=random.choice(presencelists)
+	await bot.change_presence(activity=discord.Activity(type=thingytothingy[thechosenone], name=random.choice(exec(thechosenone))))
 
 @bot.command(help='Shows help for commands')
 async def help(ctx):
