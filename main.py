@@ -127,22 +127,22 @@ async def egg(ctx):
 @bot.command(help='Secret debug commands')
 async def clearlog(ctx):
 	if ctx.author != 'AlexApps#9295':
-		ctx.send('This is an exclusive bot dev only command!')
+		await ctx.send('This is an exclusive bot dev only command!')
 	else:
 		try:
 			open('main.log', 'w').close()
-			ctx.send('All gone!')
+			await ctx.send('All gone!')
 		except:
-			ctx.send('An error occured! oof')
+			await ctx.send('An error occured! oof')
 
 @bot.command(help='Secret debug commands')
 async def printlog(ctx):
 	if ctx.author != 'AlexApps#9295':
-		ctx.send('This is an exclusive bot dev only command!')
+		await ctx.send('This is an exclusive bot dev only command!')
 	else:
 		try:
-			ctx.send('```' + open('main.log', 'r').read() + '```')
+			await ctx.send('```' + open('main.log', 'r').read() + '```')
 		except:
-			ctx.send('An error occured! oof')
+			await ctx.send('An error occured! oof')
 
 bot.run(os.environ['TOKEN_DISCORD'])
