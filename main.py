@@ -122,7 +122,7 @@ async def emojify(ctx, *, text: str):
 async def egg(ctx):
 	await ctx.send('100% Free range!')
 
-@bot.command(help='Secret debug commands', aliases='restart')
+@bot.command(help='Secret debug commands', aliases=['restart'])
 async def reboot(ctx):
 	if ctx.author.id != 292383975048216576:
 		await ctx.send('This is an exclusive bot developer only command!')
