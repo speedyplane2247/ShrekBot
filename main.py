@@ -29,8 +29,8 @@ async def on_ready():
 	print('ShrekBot '+version)
 	print('Logged in as: '+bot.user.name)
 	print('Client User ID: '+str(bot.user.id))
-	thechosenone=random.choice(presencelists)
-	await bot.change_presence(activity=discord.Activity(type=thingytothingy[thechosenone], name=random.choice(exec(thechosenone))))
+	presence=random.choice(presencelists)
+	await bot.change_presence(activity=discord.Activity(type=thingytothingy[presence], name=random.choice(exec(presence))))
 
 @bot.command(help='Shows help for commands')
 async def help(ctx):
