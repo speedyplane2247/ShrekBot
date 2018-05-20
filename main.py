@@ -24,11 +24,8 @@ async def on_ready():
 	await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="All Star - Smash Mouth"))
 
 @bot.command(help='Shows help for commands')
-async def help(ctx, command = ''):
-	if command == '':
-		await ctx.send('__**ShrekBot 0.2 Commands:**__\n\n```css\nsh!help      : Shows help for commands\nsh!kill      : Be an assassin\nsh!choose    : Picks randomly between multiple choices\nsh!something : Random Stuff\nsh!zouss     : Zouss City\nsh!echo      : Echoes whatever you say\nsh!ping      : Useful for testing Internet speed\nsh!kick      : For getting rid of annoyances\nsh!hex       : Picks a random hex color\nsh!google    : Searches the web (or images if typed first)\nsh!lmgtfy    : Let me Google that for you\nsh!emojify   : For when plain text just is not enough\nsh!dice      : Leave it to luck```\n```\nIf you want to suggest more commands, visit the creator at:\nhttps://discord.gg/2anYtuD```')
-	else:
-		print(command)
+async def help(ctx):
+	await ctx.send('__**ShrekBot 0.2 Commands:**__\n\n```css\nsh!help      : Shows help for commands\nsh!kill      : Be an assassin\nsh!choose    : Picks randomly between multiple choices\nsh!something : Random Stuff\nsh!zouss     : Zouss City\nsh!echo      : Echoes whatever you say\nsh!ping      : Useful for testing Internet speed\nsh!kick      : For getting rid of annoyances\nsh!hex       : Picks a random hex color\nsh!google    : Searches the web (or images if typed first)\nsh!lmgtfy    : Let me Google that for you\nsh!emojify   : For when plain text just is not enough\nsh!dice      : Leave it to luck```\n```\nIf you want to suggest more commands, visit the creator at:\nhttps://discord.gg/2anYtuD```')
 
 @bot.command(help='Be an assassin')
 async def kill(ctx, *, user = 'You'):
@@ -51,7 +48,7 @@ async def zouss(ctx):
 async def echo(ctx, *, message):
 	await ctx.send(message)
 
-@bot.command(help='For getting rid of annoyances', pass_context = True)
+@bot.command(help='For getting rid of annoyances')
 async def kick(ctx, username: discord.User):
 	try:
 		if ctx.message.author.server_permissions.kick_members:
@@ -73,7 +70,7 @@ async def hex(ctx):
 	im.save("color.png")
 	await ctx.send(file=discord.File('color.png'))
 
-@bot.command(help='Useful for testing Internet speed', pass_context=True)
+@bot.command(help='Useful for testing Internet speed')
 async def ping(ctx):
 	await ctx.send("🏓 Pong: **{}ms**".format(round(bot.latency * 1000, 2)))
 
@@ -93,7 +90,7 @@ async def google(ctx, *, searchquery: str):
 	else:
 		await ctx.send('<https://www.google.com/search?q=' + urllib.parse.quote_plus(searchquery) + '>')
 
-@bot.command(help='For when plain text just is not enough', pass_context=True)
+@bot.command(help='For when plain text just is not enough')
 async def emojify(ctx, *, text: str):
 	author = ctx.message.author
 	emojified = '⬇ Copy and paste this: ⬇\n'
@@ -112,13 +109,5 @@ async def emojify(ctx, *, text: str):
 			await ctx.send('Your message could not be converted!')
 		else:
 			await author.send('`'+emojified+'`')
-
-@bot.command(help='wow such animated')
-async def animatedemoji(ctx, name = 'Minga', id:str = '443632155957133312'):
-	await ctx.send('<a:{}:{}>'.format(name, id))
-
-@bot.command(help='Global emoji test')
-async def globalemoji(ctx, name = 'oof', id:str = '447195482293272578'):
-	await ctx.send('<:{}:{}>'.format(name, id))
 
 bot.run(os.environ['TOKEN_DISCORD'])
