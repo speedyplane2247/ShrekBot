@@ -141,7 +141,8 @@ async def printlog(ctx):
 		await ctx.send('This is an exclusive bot dev only command!')
 	else:
 		try:
-			await ctx.send('```' + open('main.log', 'r').read() + '```')
+			log = open('main.log', 'r').read()
+			await ctx.send('```{}```'.format(log))
 		except:
 			await ctx.send('An error occured! oof')
 
