@@ -127,6 +127,7 @@ async def reboot(ctx):
 	if ctx.author.id != 292383975048216576:
 		await ctx.send('This is an exclusive bot developer only command!')
 	else:
+		await ctx.send('**Restarting...**')
 		headers = {'Content-Type':'application/json','Accept':'application/vnd.heroku+json; version=3','Authorization':'Bearer {}'.format(os.environ['HEROKU_API_KEY'])}
 		requests.delete('https://api.heroku.com/apps/shrek-bot/dynos/worker', headers=headers)
 
