@@ -126,7 +126,7 @@ async def egg(ctx):
 
 @bot.command(help='Secret debug commands')
 async def clearlog(ctx):
-	if ctx.author != 'AlexApps#9295':
+	if ctx.author.id != '292383975048216576':
 		await ctx.send('This is an exclusive bot dev only command!')
 	else:
 		try:
@@ -137,7 +137,7 @@ async def clearlog(ctx):
 
 @bot.command(help='Secret debug commands')
 async def printlog(ctx):
-	if ctx.author != 'AlexApps#9295':
+	if ctx.author.id != '292383975048216576':
 		await ctx.send('This is an exclusive bot dev only command!')
 	else:
 		try:
