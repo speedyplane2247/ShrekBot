@@ -11,6 +11,7 @@ import time
 import urllib.parse
 import re
 import requests
+import aiohttp
 
 bot = commands.Bot(command_prefix='sh!', case_insensitive=True)
 
@@ -33,7 +34,7 @@ async def on_ready():
 
 @bot.command(help='Shows help for commands')
 async def help(ctx):
-	await ctx.send('__**ShrekBot 0.2 Commands:**__\n\n```css\nsh!help      : Shows help for commands\nsh!kill      : Be an assassin\nsh!choose    : Picks randomly between multiple choices\nsh!something : Random Stuff\nsh!zouss     : Zouss City\nsh!echo      : Echoes whatever you say\nsh!ping      : Useful for testing Internet speed\nsh!kick      : For getting rid of annoyances\nsh!hex       : Picks a random hex color\nsh!google    : Searches the web (or images if typed first)\nsh!lmgtfy    : Let me Google that for you\nsh!emojify   : For when plain text just is not enough\nsh!dice      : Leave it to luck\nsh!egg       : For those free range fellas```\n```\nIf you want to suggest more commands, visit the creator at:\nhttps://discord.gg/2anYtuD```')
+	await ctx.send('__**ShrekBot 0.2 Commands:**__\n\n```css\nsh!help      : Shows help for commands\nsh!kill      : Be an assassin\nsh!choose    : Picks randomly between multiple choices\nsh!something : Random Stuff\nsh!zouss     : Zouss City\nsh!echo      : Echoes whatever you say\nsh!ping      : Useful for testing Internet speed\nsh!kick      : For getting rid of annoyances\nsh!hex       : Picks a random hex color\nsh!google    : Searches the web (or images if typed first)\nsh!lmgtfy    : Let me Google that for you\nsh!emojify   : For when plain text just is not enough\nsh!dice      : Leave it to luck\nsh!egg       : For those free range fellas\nsh!clone     : Clone your words - like echo```\n```\nIf you want to suggest more commands, visit the creator at:\nhttps://discord.gg/2anYtuD```')
 
 @bot.command(help='Be an assassin')
 async def kill(ctx, *, user = 'You'):
@@ -130,5 +131,12 @@ async def reboot(ctx):
 		await ctx.send('**Restarting...**')
 		headers = {'Content-Type':'application/json','Accept':'application/vnd.heroku+json; version=3','Authorization':'Bearer {}'.format(os.environ['HEROKU_API_KEY'])}
 		requests.delete('https://api.heroku.com/apps/shrek-bot/dynos/worker', headers=headers)
+
+@bot.command(help='Clone your words - like echo')
+async def clone(ctx, *, message):
+	pfp = requests.get(ctx.author.avatar_url_as(format='png', size=256)).content
+	fakedude = await ctx.channel.create_webhook(name=ctx.author.display_name, avatar=pfp)
+	await fakedude.send(message)
+	await fakedude.delete()
 
 bot.run(os.environ['TOKEN_DISCORD'])
