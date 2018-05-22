@@ -70,14 +70,29 @@ async def kick(ctx, username: discord.User):
 			await ctx.send('Sorry, but an unexpected error occured. Make sure I have the permissions to kick.')
 
 @bot.command(help='Picks a random hex color')
-async def hex(ctx):
-	r = lambda: random.randint(0,255)
-	hexcode = '%02X%02X%02X' % (r(),r(),r())
-	rgbcode = str(tuple(int(hexcode[i:i+2], 16) for i in (0, 2 ,4)))
-	await ctx.send('`Hex: #' + hexcode + '`\n`RGB: ' + rgbcode + '`')
-	im = Image.new("RGB", (64,64), '#' + hexcode)
-	im.save("color.png")
-	await ctx.send(file=discord.File('color.png'))
+async def hex(ctx, hex = ''):
+	if hex == '':
+		r = lambda: random.randint(0,255)
+		hexcode = '%02X%02X%02X' % (r(),r(),r())
+		rgbcode = str(tuple(int(hexcode[i:i+2], 16) for i in (0, 2 ,4)))
+		await ctx.send('`Hex: #' + hexcode + '`\n`RGB: ' + rgbcode + '`')
+		im = Image.new("RGB", (64,64), '#' + hexcode)
+		im.save("color.png")
+		await ctx.send(file=discord.File('color.png'))
+	else:
+		if hex.startswith('#'):
+			hexcode = hex[1:]
+			if len(hexcode) == 8:
+				hexcode = hexcode[:-2]
+			elif len(hexcode) != 6:
+				await ctx.send('Make sure your hex color is in this format: `#7289DA`')
+			rgbcode = str(tuple(int(hexcode[i:i+2], 16) for i in (0, 2 ,4)))
+			await ctx.send('`Hex: #' + hexcode + '`\n`RGB: ' + rgbcode + '`')
+			im = Image.new("RGB", (64,64), '#' + hexcode)
+			im.save("color.png")
+			await ctx.send(file=discord.File('color.png'))
+		else:
+			await ctx.send('Make sure your hex color is in this format: `#7289DA`')
 
 @bot.command(help='Useful for testing Internet speed')
 async def ping(ctx):
