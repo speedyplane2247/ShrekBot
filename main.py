@@ -12,6 +12,8 @@ import urllib.parse
 import re
 import requests
 import aiohttp
+import base64
+import json
 
 bot = commands.Bot(command_prefix='sh!', case_insensitive=True)
 
@@ -34,7 +36,7 @@ async def on_ready():
 
 @bot.command(help='Shows help for commands')
 async def help(ctx):
-	await ctx.send('__**ShrekBot 0.2 Commands:**__\n\n```css\nsh!help      : Shows help for commands\nsh!kill      : Be an assassin\nsh!choose    : Picks randomly between multiple choices\nsh!something : Random Stuff\nsh!zouss     : Zouss City\nsh!echo      : Echoes whatever you say\nsh!ping      : Useful for testing Internet speed\nsh!kick      : For getting rid of annoyances\nsh!hex       : Picks a random hex color\nsh!google    : Searches the web (or images if typed first)\nsh!lmgtfy    : Let me Google that for you\nsh!emojify   : For when plain text just is not enough\nsh!dice      : Leave it to luck\nsh!egg       : For those free range fellas\nsh!clone     : Clone your words - like echo```\n```\nIf you want to suggest more commands, visit the creator at:\nhttps://discord.gg/2anYtuD```')
+	await ctx.send('__**ShrekBot 0.2 Commands:**__\n\n```css\nsh!help      : Shows help for commands\nsh!kill      : Be an assassin\nsh!choose    : Picks randomly between multiple choices\nsh!something : Random Stuff\nsh!zouss     : Zouss City\nsh!echo      : Echoes whatever you say\nsh!ping      : Useful for testing Internet speed\nsh!kick      : For getting rid of annoyances\nsh!hex       : Picks a random hex color\nsh!google    : Searches the web (or images if typed first)\nsh!lmgtfy    : Let me Google that for you\nsh!emojify   : For when plain text just is not enough\nsh!dice      : Leave it to luck\nsh!egg       : For those free range fellas\nsh!clone     : Clone your words - like echo\nsh!skin      : Downloads Minecraft skins```\n```\nIf you want to suggest more commands, visit the creator at:\nhttps://discord.gg/2anYtuD```')
 
 @bot.command(help='Be an assassin')
 async def kill(ctx, *, user = 'You'):
@@ -153,5 +155,13 @@ async def clone(ctx, *, message):
 	fakedude = await ctx.channel.create_webhook(name=ctx.author.display_name, avatar=pfp)
 	await fakedude.send(message)
 	await fakedude.delete()
+
+@bot.command(help='Shows MC skin')
+async def skin(ctx, username = 'Shrek'):
+    uuid = requests.get('https://api.mojang.com/users/profiles/minecraft/{}'.format(username)).json()['id']
+    url = json.loads(base64.b64decode(requests.get('https://sessionserver.mojang.com/session/minecraft/profile/{}'.format(uuid)).json()['properties'][0]['value']).decode('utf-8'))['textures']['SKIN']['url']
+    skin = requests.get(url).content
+    await ctx.send('**Username: `{}`**'.format(username))
+    await ctx.send(file=discord.File(skin, filename='{}.png'.format(username)))
 
 bot.run(os.environ['TOKEN_DISCORD'])
