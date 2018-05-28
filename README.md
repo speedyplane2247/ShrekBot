@@ -28,7 +28,15 @@ sh!hex       : Picks a random hex color
 
 sh!google    : Searches the web (or images if typed first)
 
-sh!lmgtfy    : If somebody has a really stupid question
+sh!lmgtfy    : Let me Google that for you
+
+sh!emojify   : For when plain text just is not enough
+
+sh!dice      : Leave it to luck
+
+sh!egg       : For those free range fellas
+
+sh!clone     : Clone your words - like echo
 ```
 **Links:**
 
@@ -36,8 +44,7 @@ If you want to contact the creator of ShrekBot, go to
 
 https://discord.gg/2anYtuD
 
-:trollface:
 
 If you want to add ShrekBot to your server, go to 
 
-https://discordapp.com/api/oauth2/authorize?client_id=422167273881731082&permissions=8&scope=bot
+https://alexapps99.github.io/ShrekBot
