@@ -167,6 +167,6 @@ async def skin(ctx, username = 'Shrek'):
 @bot.command(help='Searches for YouTube videos', aliases=['youtube'])
 async def yt(ctx, *, query: str):
 	req = requests.get('https://www.googleapis.com/youtube/v3/search?part=id&eventType=completed&maxResults=1&order=viewCount&q={}&safeSearch=moderate&type=video&key='.format(query) + os.environ['YOUTUBE_API_KEY'])
-	await ctx.send('**Video URL: {}**'.format(req.json()['items'][0]['id']['videoId'])
+	await ctx.send('**Video URL: {}**'.format(req.json()['items'][0]['id']['videoId']))
 
 bot.run(os.environ['TOKEN_DISCORD'])
