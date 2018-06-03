@@ -27,7 +27,7 @@ sh!yt        : Searches for YouTube videos
 
 If you want to contact the creator of ShrekBot, go to
 
-[ShrekBot Official Discord Server](https://discord.gg/2anYtuD "Join ShrekBot's Server!")
+[ShrekBot Official Discord Server](https://alexapps99.github.io/ShrekBot/server "Join ShrekBot's Server!")
 
 
 If you want to add ShrekBot to your server, go to 
