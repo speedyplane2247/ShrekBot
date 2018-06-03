@@ -1,7 +1,7 @@
 # ShrekBot
 A simple bot for Discord written with discord.py
 
-[![Join ShrekBot Official Today!](https://discordapp.com/api/guilds/421840338907299841/widget.png?style=banner2)](https://discord.gg/2anYtuD)
+[![Join ShrekBot Official Today!](https://discordapp.com/api/guilds/421840338907299841/widget.png?style=banner2)](https://alexapps99.github.io/ShrekBot/server)
 
 **Current Commands:**
 ```fix
@@ -27,7 +27,7 @@ sh!yt        : Searches for YouTube videos
 
 If you want to contact the creator of ShrekBot, go to
 
-[ShrekBot Official Discord Server](https://discord.gg/2anYtuD "Join ShrekBot's Server!")
+[ShrekBot Official Discord Server](https://alexapps99.github.io/ShrekBot/server "Join ShrekBot's Server!")
 
 
 If you want to add ShrekBot to your server, go to 
