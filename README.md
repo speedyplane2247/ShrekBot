@@ -1,10 +1,7 @@
 # ShrekBot
 A simple bot for Discord written with discord.py
 
-[![alt text][image]][hyperlink]
-
-  [hyperlink]: https://discord.gg/2anYtuD
-  [image]: https://discordapp.com/api/guilds/421840338907299841/widget.png?style=banner2 (Join ShrekBot Official Today!)
+[![Join ShrekBot Official Today!](https://discordapp.com/api/guilds/421840338907299841/widget.png?style=banner2)](https://discord.gg/2anYtuD)
 
 **Current Commands:**
 ```
@@ -42,9 +39,9 @@ sh!clone     : Clone your words - like echo
 
 If you want to contact the creator of ShrekBot, go to
 
-https://discord.gg/2anYtuD
+[ShrekBot Official Discord Server](https://discord.gg/2anYtuD "Join ShrekBot's Server!")
 
 
 If you want to add ShrekBot to your server, go to 
 
-https://alexapps99.github.io/ShrekBot
+[ShrekBot's Website](https://alexapps99.github.io/ShrekBot "Get ShrekBot on your server!")
