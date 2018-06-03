@@ -1,7 +1,7 @@
 # ShrekBot
 A simple bot for Discord written with discord.py
 
-[![Join ShrekBot Official Today!](https://discordapp.com/api/guilds/421840338907299841/widget.png?style=banner2)](https://discord.gg/2anYtuD)
+[![Join ShrekBot Official Today!](https://discordapp.com/api/guilds/421840338907299841/widget.png?style=banner2)](https://alexapps99.github.io/ShrekBot/server)
 
 **Current Commands:**
 ```fix
