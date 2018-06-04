@@ -3,7 +3,7 @@ A simple bot for Discord written with discord.py
 
 [![Join ShrekBot Official Today!](https://discordapp.com/api/guilds/421840338907299841/widget.png?style=banner2)](https://alexapps99.github.io/ShrekBot/server)
 
-**Current Commands:**
+# Current Commands:
 ```fix
 sh!help      : Shows help for commands
 sh!kill      : Be an assassin
@@ -23,7 +23,7 @@ sh!clone     : Clone your words - like echo
 sh!skin      : Downloads Minecraft skins
 sh!yt        : Searches for YouTube videos
 ```
-**Links:**
+# Links:
 
 If you want to contact the creator of ShrekBot, go to
 
@@ -34,7 +34,7 @@ If you want to add ShrekBot to your server, go to
 
 [ShrekBot's Website](https://alexapps99.github.io/ShrekBot "Get ShrekBot on your server!")
 
-# Info
+# Info:
 Information about ShrekBot
 
 ShrekBot was made this year as a fun hobby, but has grown into a large well featured bot! :smiley:
