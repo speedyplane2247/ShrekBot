@@ -1,3 +1,5 @@
 theme: jekyll-theme-cayman
 plugins:
   - jemoji
+emoji:
+  src: "https://github.com/twitter/twemoji/raw/gh-pages/2/72x72/"
