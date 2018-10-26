@@ -304,15 +304,14 @@ async def wikipedia(ctx, *, query: str):
          '&format=json&list=search&utf8=1&srsearch={}&srlimit=1&srprop='
         ).format(query))
     
-    if req.json()['query'][0]['searchinfo']['totalhits'] == 0:
+    if req.json()['query']['searchinfo']['totalhits'] == 0:
         await ctx.send('Your search could not be found...')
     else:
-        article = req.json()['query'][0]['search']['title']
+        article = req.json()['query']['search'][0]['title']
         req =  requests.get('https://en.wikipedia.org/api/rest_v1/page/summary/'+article)
         # TODO make rich embed
-        arttitle = req.json()['title'][0]
-        artimg = req.json()['originalimage'][0]['source']
-        artdesc = req.json()['extract'][0]
-        await ctx.send('**{}**\n{}\n{}'.format(arttitle, artimg, artdesc))
+        arturl = req.json()['content_urls']['desktop']['page']
+        artdesc = req.json()['extract']
+        await ctx.send('**{}**\n<{}>\n{}'.format(article, arturl, artdesc))
 
 BOT.run(os.environ['TOKEN_DISCORD'])
