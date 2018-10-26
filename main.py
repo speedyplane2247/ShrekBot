@@ -304,7 +304,7 @@ async def wikipedia(ctx, *, query: str):
          '&format=json&list=search&utf8=1&srsearch={}&srlimit=1&srprop='
         ).format(query))
     
-    if not req.json()['query'][0]['searchinfo']['totalhits']:
+    if req.json()['query'][0]['searchinfo']['totalhits'] == 0:
         await ctx.send('Your search could not be found...')
     else:
         article = req.json()['query'][0]['search']['title']
