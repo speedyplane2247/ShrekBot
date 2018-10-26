@@ -19,6 +19,7 @@ sh!clone     : Clone your words - like echo
 sh!skin      : Downloads Minecraft skins
 sh!youtube   : Searches for YouTube videos
 sh!lenny     : ( ͡° ͜ʖ ͡°)
+sh!wikipedia : Describes your search on Wikipedia
 ```
 ```
 If you want to suggest more commands, visit the creator at:
