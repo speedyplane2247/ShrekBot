@@ -304,15 +304,15 @@ async def wikipedia(ctx, *, query: str):
          '&format=json&list=search&utf8=1&srsearch={}&srlimit=1&srprop='
         ).format(query))
     
-        if not req.json()['query'][0]['searchinfo']['totalhits']:
-            await ctx.send('Your search could not be found...')
-        else:
-            article = req.json()['query'][0]['search']['title']
-            req =  requests.get('https://en.wikipedia.org/api/rest_v1/page/summary/'+article)
-            # TODO make rich embed
-            arttitle = req.json()['title'][0]
-            artimg = req.json()['originalimage'][0]['source']
-            artdesc = req.json()['extract'][0]
-            await ctx.send('**{}**\n{}\n{}'.format(arttitle, artimg, artdesc))
+    if not req.json()['query'][0]['searchinfo']['totalhits']:
+        await ctx.send('Your search could not be found...')
+    else:
+        article = req.json()['query'][0]['search']['title']
+        req =  requests.get('https://en.wikipedia.org/api/rest_v1/page/summary/'+article)
+        # TODO make rich embed
+        arttitle = req.json()['title'][0]
+        artimg = req.json()['originalimage'][0]['source']
+        artdesc = req.json()['extract'][0]
+        await ctx.send('**{}**\n{}\n{}'.format(arttitle, artimg, artdesc))
 
 BOT.run(os.environ['TOKEN_DISCORD'])
