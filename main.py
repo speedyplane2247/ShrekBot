@@ -301,6 +301,13 @@ async def santa(ctx):
     '''
     await ctx.send('Merry Christmas!')
 
+@BOT.command(helpinfo='Who created the bot')
+async def owner(ctx):
+    '''
+    Yadaya self explanatory
+    '''
+    await ctx.send('This bot was made by `AlexApps#9295`')
+
 @BOT.command(helpinfo='Wikipedia summary', aliases=['w'])
 async def wikipedia(ctx, *, query: str):
     '''
