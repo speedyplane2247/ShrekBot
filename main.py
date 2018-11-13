@@ -294,6 +294,13 @@ async def lenny(ctx):
     '''
     await ctx.send('( ͡° ͜ʖ ͡°)')
 
+@BOT.command(helpinfo='It is that time of the year')
+async def santa(ctx):
+    '''
+    Hohohoho
+    '''
+    await ctx.send('Merry Christmas!')
+
 @BOT.command(helpinfo='Wikipedia summary', aliases=['w'])
 async def wikipedia(ctx, *, query: str):
     '''
