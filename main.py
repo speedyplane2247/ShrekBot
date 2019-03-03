@@ -327,19 +327,13 @@ async def wikipedia(ctx, *, query: str):
             return
         article = req[list(req)[0]]['title']
         arturl = req[list(req)[0]]['fullurl']
+        artdesc = requests.get('https://en.wikipedia.org/api/rest_v1/page/summary/'+article).json()['extract']
         lastedited = datetime.datetime.strptime(req[list(req)[0]]['touched'], "%Y-%m-%dT%H:%M:%SZ")
-        images = req[list(req)[0]]['images']
-        gameart = images[-1]['title'] # Find better cover finding algorithm
-        req = requests.get('https://en.wikipedia.org//w/api.php?action=query'
-                           '&format=json&utf8=1&prop=imageinfo&iiprop=url'
-                           '&titles={}'.format(gameart)).json()['query']['pages']
-        gamearturl = req[list(req)[0]]['imageinfo'][0]['url']
-        embed = discord.Embed(title='**'+article+'**', url=arturl, color=0x3FCAFF)
-        embed.set_image(url=gamearturl)
+        embed = discord.Embed(title='**'+article+'**', url=arturl, description=artdesc, color=0x3FCAFF)
         embed.set_footer(text='Wiki entry last modified',
-                         icon_url='http://alex.apps99.github.io/ShrekBot/favicon-32x32.png')
+                         icon_url='https://upload.wikimedia.org/wikipedia/commons/6/63/Wikipedia-logo.png')
         embed.set_author(name='Wikipedia', url='https://en.wikipedia.org/',
-                         icon_url='http://alex.apps99.github.io/ShrekBot/favicon-32x32.png')
+                         icon_url='https://upload.wikimedia.org/wikipedia/commons/6/63/Wikipedia-logo.png')
         embed.timestamp = lastedited
         await ctx.send('**Search result for:** ***"{}"***:'.format(query), embed=embed)
 
