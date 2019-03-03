@@ -13,11 +13,24 @@ import re
 import signal
 import sys
 import urllib.parse
+import datetime
 
 from PIL import Image
 import requests
 import discord
 from discord.ext import commands
+
+if "TOKEN_DISCORD" in os.environ:
+    TOKEN_DISCORD = os.environ['TOKEN_DISCORD']
+elif len(sys.argv) >= 2:
+    TOKEN_DISCORD = sys.argv[1]
+elif os.path.isfile('token_discord.txt'):
+    TOKENFILE = open('token_discord.txt', 'r')
+    TOKEN_DISCORD = TOKENFILE.read()
+    TOKENFILE.close()
+else:
+    print('Please provide a token')
+    sys.exit(1)
 
 BOT = commands.Bot(command_prefix='sh!', case_insensitive=True)
 
@@ -45,6 +58,10 @@ ACTIVITYTYPE = {'LISTENING': discord.ActivityType.listening,
 PRESENCELISTS = ['LISTENING', 'PLAYING', 'WATCHING']
 PRESENCE = random.choice(PRESENCELISTS)
 
+INFO = open('commands.md', 'r')
+INFOTEXT = INFO.read()
+INFO.close()
+
 @BOT.event
 async def on_ready():
     '''
@@ -54,7 +71,7 @@ async def on_ready():
     print('Logged in as: '+BOT.user.name)
     print('Client User ID: '+str(BOT.user.id))
     await BOT.change_presence(activity=discord.Activity(
-        type=ACTIVITYTYPE[PRESENCE], name=('sh!info | '+random.choice(globals()[PRESENCE]))))
+        type=ACTIVITYTYPE[PRESENCE], name=(random.choice(globals()[PRESENCE])+' | sh!info')))
 
 def sigterm_handler():
     '''
@@ -71,9 +88,7 @@ async def info(ctx):
     '''
     Provides information about commands and the bot itself.
     '''
-    infotext = open('commands.md', 'r')
-    await ctx.send(infotext.read())
-    infotext.close()
+    await ctx.send(INFOTEXT)
 
 @BOT.command(helpinfo='Be an assassin')
 async def kill(ctx, *, user='You'):
@@ -221,13 +236,6 @@ async def emojify(ctx, *, text: str):
         else:
             await author.send('`'+emojified+'`')
 
-@BOT.command(helpinfo='For those free range fellas')
-async def egg(ctx):
-    '''
-    Random Eggy command
-    '''
-    await ctx.send('100% Free range!')
-
 @BOT.command(helpinfo='Secret debug commands', aliases=['restart'])
 async def reboot(ctx):
     '''
@@ -287,20 +295,6 @@ async def youtube(ctx, *, query: str):
     await ctx.send('**Video URL: https://www.youtube.com/watch?v={}**'
                    .format(req.json()['items'][0]['id']['videoId']))
 
-@BOT.command(helpinfo='( ͡° ͜ʖ ͡°)')
-async def lenny(ctx):
-    '''
-    Dank memes!1!!
-    '''
-    await ctx.send('( ͡° ͜ʖ ͡°)')
-
-@BOT.command(helpinfo='It is that time of the year')
-async def santa(ctx):
-    '''
-    Hohohoho
-    '''
-    await ctx.send('Merry Christmas!')
-
 @BOT.command(helpinfo='Who created the bot')
 async def owner(ctx):
     '''
@@ -308,24 +302,45 @@ async def owner(ctx):
     '''
     await ctx.send('This bot was made by `AlexApps#9295`')
 
-@BOT.command(helpinfo='Wikipedia summary', aliases=['w'])
+@BOT.command(helpinfo='Wikipedia summary', aliases=['w', 'wiki'])
 async def wikipedia(ctx, *, query: str):
     '''
     Uses Wikipedia APIs to summarise search
     '''
-    req = requests.get(
+    sea = requests.get(
         ('https://en.wikipedia.org//w/api.php?action=query'
-         '&format=json&list=search&utf8=1&srsearch={}&srlimit=1&srprop='
-        ).format(query))
-    
-    if req.json()['query']['searchinfo']['totalhits'] == 0:
-        await ctx.send('Your search could not be found...')
-    else:
-        article = req.json()['query']['search'][0]['title']
-        req =  requests.get('https://en.wikipedia.org/api/rest_v1/page/summary/'+article)
-        # TODO make rich embed
-        arturl = req.json()['content_urls']['desktop']['page']
-        artdesc = req.json()['extract']
-        await ctx.send('**{}**\n<{}>\n{}'.format(article, arturl, artdesc))
+         '&format=json&list=search&utf8=1&srsearch={}&srlimit=5&srprop='
+        ).format(query)).json()['query']
 
-BOT.run(os.environ['TOKEN_DISCORD'])
+    if sea['searchinfo']['totalhits'] == 0:
+        await ctx.send('Sorry, your search could not be found.')
+    else:
+        for x in range(len(sea['search'])):
+            article = sea['search'][x]['title']
+            req = requests.get('https://en.wikipedia.org//w/api.php?action=query'
+                               '&utf8=1&redirects&format=json&prop=info|images'
+                               '&inprop=url&titles={}'.format(article)).json()['query']['pages']
+            if str(list(req)[0]) != "-1":
+                break
+        else:
+            await ctx.send('Sorry, your search could not be found.')
+            return
+        article = req[list(req)[0]]['title']
+        arturl = req[list(req)[0]]['fullurl']
+        lastedited = datetime.datetime.strptime(req[list(req)[0]]['touched'], "%Y-%m-%dT%H:%M:%SZ")
+        images = req[list(req)[0]]['images']
+        gameart = images[-1]['title'] # Find better cover finding algorithm
+        req = requests.get('https://en.wikipedia.org//w/api.php?action=query'
+                           '&format=json&utf8=1&prop=imageinfo&iiprop=url'
+                           '&titles={}'.format(gameart)).json()['query']['pages']
+        gamearturl = req[list(req)[0]]['imageinfo'][0]['url']
+        embed = discord.Embed(title='**'+article+'**', url=arturl, color=0x3FCAFF)
+        embed.set_image(url=gamearturl)
+        embed.set_footer(text='Wiki entry last modified',
+                         icon_url='http://alex.apps99.github.io/ShrekBot/favicon-32x32.png')
+        embed.set_author(name='Wikipedia', url='https://en.wikipedia.org/',
+                         icon_url='http://alex.apps99.github.io/ShrekBot/favicon-32x32.png')
+        embed.timestamp = lastedited
+        await ctx.send('**Search result for:** ***"{}"***:'.format(query), embed=embed)
+
+BOT.run(TOKEN_DISCORD)

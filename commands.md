@@ -14,11 +14,9 @@ sh!google    : Searches the web (or images if typed first)
 sh!lmgtfy    : Let me Google that for you
 sh!emojify   : For when plain text just is not enough
 sh!dice      : Leave it to luck
-sh!egg       : For those free range fellas
 sh!clone     : Clone your words - like echo
 sh!skin      : Downloads Minecraft skins
 sh!youtube   : Searches for YouTube videos
-sh!lenny     : ( ͡° ͜ʖ ͡°)
 sh!wikipedia : Describes your search on Wikipedia
 ```
 ```
