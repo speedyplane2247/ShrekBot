@@ -236,6 +236,25 @@ async def emojify(ctx, *, text: str):
         else:
             await author.send('`'+emojified+'`')
 
+@BOT.command(helpinfo='When your text needs to be c o n c e a l e d')
+async def spoilify(ctx, *, text: str):
+    '''
+    Converts the alphabet and spaces into hidden secrets
+    '''
+    author = ctx.message.author
+    spoilified = '⬇ Copy and paste this: ⬇\n'
+    if text == '':
+        await ctx.send('Remember to say what you want to convert!')
+    else:
+        for i in text:
+            spoilified += '||{}||'.format(i)
+        if len(spoilified) + 2 >= 2000:
+            await ctx.send('Your message in spoilers exceeds 2000 characters!')
+        if len(spoilified) <= 4:
+            await ctx.send('Your message could not be converted!')
+        else:
+            await author.send('`'+spoilified+'`')
+
 @BOT.command(helpinfo='Secret debug commands', aliases=['restart'])
 async def reboot(ctx):
     '''

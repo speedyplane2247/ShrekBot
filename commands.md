@@ -13,6 +13,7 @@ sh!color     : Picks a random hex color
 sh!google    : Searches the web (or images if typed first)
 sh!lmgtfy    : Let me Google that for you
 sh!emojify   : For when plain text just is not enough
+sh!spoilify  : When your text needs to be c o n c e a l e d
 sh!dice      : Leave it to luck
 sh!clone     : Clone your words - like echo
 sh!skin      : Downloads Minecraft skins
