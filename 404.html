@@ -1,24 +1,69 @@
 <html>
 	<head>
-		<link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="https://alexapps99.github.io/index.css">
-		<title>Error 404!</title>
-		<link rel="icon" type="image/png" href="https://alexapps99.github.io/favicon-32x32.png" sizes="32x32" />
-		<link rel="icon" type="image/png" href="https://alexapps99.github.io/favicon-16x16.png" sizes="16x16" />
-		<script>
-			if (window.location.protocol != "https:")
-			window.location.protocol = "https:";
-		</script>
+		<title>ERROR 404</title>
+		<style>
+			body,
+			html {
+				height: 100%;
+				overflow: hidden;
+				padding: 0;
+				margin: 0;
+			}
+			body {
+				background: #0000aa;
+				color: #ffffff;
+				font-family: courier;
+				font-size: 10pt;
+				text-align: center;
+				margin: 10% 5%;
+			}
+			.neg {
+				background: #fff;
+				color: #0000aa;
+				padding: 2px 8px;
+				font-weight: bold;
+			}
+			p {
+				margin: 5% auto;
+				text-align: left;
+				width: 100%;
+			}
+			a,
+			a:hover {
+				color: inherit;
+				font: inherit;
+				text-decoration: none;
+			}
+			.menu {
+				text-align: center;
+				margin-top: 50px;
+			}
+			@keyframes blinker {
+				50% {
+					opacity: 0;
+				}
+			}
+			blink {
+				animation: blinker 1s linear infinite;
+			}
+		</style>
 	</head>
-	<body>
-		<div class="head">
-			Error 404: Page not found!
-			<span class="blinking-cursor">|</span>
-		</div>
-		<ul>
-			<li>
-				<a href="https://alexapps99.github.io/">Back to home</a>
-			</li>
-		</ul>
+	<body onkeyup="javascript:history.back()">
+		<span class="neg">Error 404</span>
+		<p>
+			A fatal exception 404 has occured at <script>document.write(location.href);</script>. The current
+			<br>
+			application will be terminated.
+			<br>
+			<br>
+			* Press any key to terminate the current application.
+			<br>
+			* Press CTRL+ALT+DEL again to restart your computer. You will
+			<br> &nbsp; lose any unsaved information in all applications.
+		</p>
+		<a href="javascript:history.back()">
+			Press any key to continue 
+			<blink>_</blink>
+		</a>
 	</body>
 </html>
