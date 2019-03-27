@@ -5,7 +5,7 @@ A simple bot for Discord written with discord.py
 
 # Current Commands:
 ```fix
-sh!help      : Shows help for commands
+sh!info      : Shows info about the bot
 sh!kill      : Be an assassin
 sh!choose    : Picks randomly between multiple choices
 sh!something : Random Stuff
@@ -13,15 +13,16 @@ sh!zouss     : Zouss City
 sh!echo      : Echoes whatever you say
 sh!ping      : Useful for testing Internet speed
 sh!kick      : For getting rid of annoyances
-sh!hex       : Picks a random hex color
+sh!color     : Picks a random hex color
 sh!google    : Searches the web (or images if typed first)
 sh!lmgtfy    : Let me Google that for you
 sh!emojify   : For when plain text just is not enough
+sh!spoilify  : When your text needs to be c o n c e a l e d
 sh!dice      : Leave it to luck
-sh!egg       : For those free range fellas
 sh!clone     : Clone your words - like echo
 sh!skin      : Downloads Minecraft skins
-sh!yt        : Searches for YouTube videos
+sh!youtube   : Searches for YouTube videos
+sh!wikipedia : Describes your search on Wikipedia
 ```
 # Links:
 
@@ -32,9 +33,11 @@ If you want to contact the creator of ShrekBot, go to
 
 If you want to add ShrekBot to your server, go to 
 
-[ShrekBot's Website](https://alexapps99.github.io/ShrekBot "Get ShrekBot on your server!")
+[ShrekBot Invite Link](https://alexapps99.github.io/ShrekBot/invite "Get ShrekBot on your server!")
 
 # Info:
 Information about ShrekBot
 
 ShrekBot was made this year as a fun hobby, but has grown into a large well featured bot! :smiley:
+
+Not currently being maintained, submit a PR with extra features if you want to! :+1:
