@@ -1,6 +1,6 @@
 __**ShrekBot 0.2 Commands:**__
 
-```fix
+```html
 sh!info      : Shows info about the bot
 sh!kill      : Be an assassin
 sh!choose    : Picks randomly between multiple choices
