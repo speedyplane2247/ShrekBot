@@ -361,6 +361,6 @@ async def servers(ctx):
     '''
     Number of servers ShrekBot is in
     '''
-    ctx.send('**Number of servers:** ***'+len(BOT.guilds)'***!')
+    ctx.send('**Number of servers:** ***'+str(len(BOT.guilds))+'***!')
 
 BOT.run(TOKEN_DISCORD)
