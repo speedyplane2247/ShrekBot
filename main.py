@@ -184,7 +184,7 @@ async def ping(ctx):
     '''
     await ctx.send("🏓 Pong: **{}ms**".format(round(BOT.latency * 1000, 2)))
 
-@BOT.command(helpinfo='Leave it to luck')
+@BOT.command(helpinfo='Leave it to luck', aliases=['roll', 'random'])
 async def dice(ctx, number=6):
     '''
     Picks a random int between 1 and number
@@ -355,5 +355,12 @@ async def wikipedia(ctx, *, query: str):
                          icon_url='https://upload.wikimedia.org/wikipedia/commons/6/63/Wikipedia-logo.png')
         embed.timestamp = lastedited
         await ctx.send('**Search result for:** ***"{}"***:'.format(query), embed=embed)
+
+@BOT.command(helpinfo='Number of servers ShrekBot is in', aliases=['server', 'num', 'count'])
+async def servers(ctx):
+    '''
+    Number of servers ShrekBot is in
+    '''
+    ctx.send('**Number of servers:** ***'+len(BOT.guilds)'***!')
 
 BOT.run(TOKEN_DISCORD)
