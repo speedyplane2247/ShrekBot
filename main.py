@@ -371,6 +371,6 @@ async def servers(ctx):
     for x in BOT.guilds:
         y += x.member_count
     await ctx.send('**Total number of ShrekBot users:** ***{}***!\n'.format(y))
-    await ctx.send('**Number of servers:** ***'+str(len(BOT.guilds))+'***!'=]-0vc
+    await ctx.send('**Number of servers:** ***'+str(len(BOT.guilds))+'***!') # Don't wipe your keyboard while coding...
 
 BOT.run(TOKEN_DISCORD)
