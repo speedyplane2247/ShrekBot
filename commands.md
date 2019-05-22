@@ -19,7 +19,7 @@ sh!clone     : Clone your words - like echo
 sh!skin      : Downloads Minecraft skins
 sh!youtube   : Searches for YouTube videos
 sh!wikipedia : Describes your search on Wikipedia
-sh!servers   : Number of servers ShrekBot is in
+sh!servers   : Info about servers ShrekBot is in
 ```
 ```
 If you want to suggest more commands, visit the creator at:
