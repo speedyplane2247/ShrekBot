@@ -362,9 +362,9 @@ async def servers(ctx):
     Info about servers ShrekBot is in
     '''
     servers = BOT.guilds
-    servers.sort(key=lambda x: x.member_count)
+    servers.sort(key=lambda x: x.member_count, reverse=True)
     await ctx.send('***Top servers with ShrekBot:***')
-    for x in servers[10:]:
+    for x in servers[:10]:
         await ctx.send('**{}**, **{}** Members\n'.format(x.name, x.member_count))
     y = 0
     for x in BOT.guilds:
