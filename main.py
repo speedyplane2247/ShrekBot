@@ -363,14 +363,12 @@ async def servers(ctx):
     '''
     servers = BOT.guilds
     servers.sort(key=lambda x: x.member_count)
-    output = '***Top servers with ShrekBot:***\n'
-    for x in servers[8:]:
-        output += '**{}**, **{}** Members\n'.format(x.name, x.member_count)
-    await ctx.send(output)
+    await ctx.send('***Top servers with ShrekBot:***')
+    for x in servers[10:]:
+        await ctx.send('**{}**, **{}** Members\n'.format(x.name, x.member_count))
     y = 0
     for x in BOT.guilds:
         y += x.member_count
-    await ctx.send('**Total number of ShrekBot users:** ***{}***!\n'.format(y))
-    await ctx.send('**Number of servers:** ***'+str(len(BOT.guilds))+'***!') # Don't wipe your keyboard while coding...
+    await ctx.send('**Total number of ShrekBot users:** ***{}***!\n**Number of servers:** ***{}***!'.format(y, len(BOT.guilds)))
 
 BOT.run(TOKEN_DISCORD)
