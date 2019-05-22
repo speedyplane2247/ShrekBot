@@ -363,4 +363,13 @@ async def servers(ctx):
     '''
     await ctx.send('**Number of servers:** ***'+str(len(BOT.guilds))+'***!')
 
+@BOT.command(helpinfo='Info about servers ShrekBot is in', aliases=['sinfo', 'sv', 'si'])
+async def serverinfo(ctx):
+    '''
+    Info about servers ShrekBot is in
+    '''
+    for x in BOT.guilds:
+        await ctx.send('***{}, {} Members***'.format(x.name, x.member_count))
+
+
 BOT.run(TOKEN_DISCORD)
