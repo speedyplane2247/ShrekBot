@@ -356,20 +356,20 @@ async def wikipedia(ctx, *, query: str):
         embed.timestamp = lastedited
         await ctx.send('**Search result for:** ***"{}"***:'.format(query), embed=embed)
 
-@BOT.command(helpinfo='Number of servers ShrekBot is in', aliases=['server', 'num', 'count'])
+@BOT.command(helpinfo='Info about servers ShrekBot is in', aliases=['server', 'num', 'count'])
 async def servers(ctx):
-    '''
-    Number of servers ShrekBot is in
-    '''
-    await ctx.send('**Number of servers:** ***'+str(len(BOT.guilds))+'***!')
-
-@BOT.command(helpinfo='Info about servers ShrekBot is in', aliases=['sinfo', 'sv', 'si'])
-async def serverinfo(ctx):
     '''
     Info about servers ShrekBot is in
     '''
+    servers = BOT.guilds
+    servers.sort(key=lambda x: x.member_count)
+    await ctx.send('***Top servers with ShrekBot:***')
+    for x in servers[:10]:
+        await ctx.send('**{}**, **{}** Members'.format(x.name, x.member_count))
+    y = 0
     for x in BOT.guilds:
-        await ctx.send('***{}, {} Members***'.format(x.name, x.member_count))
-
+        y += x.member_count
+    await ctx.send('***Total number of ShrekBot users:** ***{}***!'.format(y))
+    await ctx.send('**Number of servers:** ***'+str(len(BOT.guilds))+'***!')
 
 BOT.run(TOKEN_DISCORD)
