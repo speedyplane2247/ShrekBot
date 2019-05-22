@@ -364,8 +364,8 @@ async def servers(ctx):
     servers = BOT.guilds
     servers.sort(key=lambda x: x.member_count, reverse=True)
     await ctx.send('***Top servers with ShrekBot:***')
-    for x in servers[:10]:
-        await ctx.send('**{}**, **{}** Members\n'.format(x.name, x.member_count))
+    for x in servers[:5]:
+        await ctx.send('**{}**, **{}** Members, {}, Owned by <@{}>, Created at {}\n{}'.format(x.name, x.member_count, x.region, x.owner_id, x.created_at, x.icon_url))
     y = 0
     for x in BOT.guilds:
         y += x.member_count
