@@ -371,4 +371,21 @@ async def servers(ctx):
         y += x.member_count
     await ctx.send('**Total number of ShrekBot users:** ***{}***!\n**Number of servers:** ***{}***!'.format(y, len(BOT.guilds)))
 
+@BOT.command(helpinfo='Looks up a sequence of numbers', aliases=['numbers', 'integers'])
+async def oeis(ctx, *, number: str):
+    '''
+    Looks up a sequence of numbers
+    '''
+    req=requests.get('https://oeis.org/search?q={}&fmt=json'.format(number)).json()['results'][0]
+    numid = 'A'+str(req['number']).zfill(6)
+    embed = discord.Embed(title='**'+numid+'**', url='https://oeis.org/{}'.format(numid), description='**'+req['name']+'**', color=0xFF0000)
+    embed.add_field(name="Numbers:", value=str(req['data']), inline=False)
+    embed.set_image(url='https://oeis.org/{}/graph?png=1'.format(numid))
+    embed.set_thumbnail(url='https://oeis.org/oeis_logo.png')
+    embed.set_footer(text='OEIS', icon_url='https://oeis.org/oeis_logo.png')
+    embed.set_author(name='OEIS.org', url='https://oeis.org/', icon_url='https://oeis.org/oeis_logo.png')
+    embed.timestamp = datetime.utcnow()
+    await ctx.send('**Search result for:** ***{}...***'.format(number), embed=embed)
+    
+
 BOT.run(TOKEN_DISCORD)
