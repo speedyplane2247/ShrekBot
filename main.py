@@ -384,7 +384,7 @@ async def oeis(ctx, *, number: str):
     embed.set_thumbnail(url='https://oeis.org/oeis_logo.png')
     embed.set_footer(text='OEIS', icon_url='https://oeis.org/oeis_logo.png')
     embed.set_author(name='OEIS.org', url='https://oeis.org/', icon_url='https://oeis.org/oeis_logo.png')
-    embed.timestamp = datetime.utcnow()
+    embed.timestamp = datetime.datetime.utcnow()
     await ctx.send('**Search result for:** ***{}...***'.format(number), embed=embed)
     
 
