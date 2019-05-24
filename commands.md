@@ -20,6 +20,7 @@ sh!skin      : Downloads Minecraft skins
 sh!youtube   : Searches for YouTube videos
 sh!wikipedia : Describes your search on Wikipedia
 sh!servers   : Info about servers ShrekBot is in
+sh!oeis      : Looks up a sequence of numbers
 ```
 ```
 If you want to suggest more commands, visit the creator at:
