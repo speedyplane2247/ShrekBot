@@ -284,10 +284,10 @@ async def clone(ctx, *, message):
     await hook.send(message)
     await hook.delete()
 
-@BOT.command(helpinfo='Shows MC info', aliases=['skin', 'minecraft'])
-async def mc(ctx, username='Shrek'):
+@BOT.command(helpinfo='Shows MC account info, skin and username history', aliases=['skin', 'mc'])
+async def minecraft(ctx, username='Shrek'):
     '''
-    Shows MC info
+    Shows MC account info, skin and username history
     '''
     uuid = requests.get('https://api.mojang.com/users/profiles/minecraft/{}'
                         .format(username)).json()['id']
@@ -301,7 +301,7 @@ async def mc(ctx, username='Shrek'):
                         .format(username)).json()
     history = "**Name History:**\n"
     for name in reversed(names):
-        history += name['name']+"\n")
+        history += name['name']+"\n"
 
     await ctx.send('**Username: `{}`**\n**Skin: {}**\n**UUID: {}**'.format(username, url, uuid))
     await ctx.send(history)
