@@ -284,10 +284,10 @@ async def clone(ctx, *, message):
     await hook.send(message)
     await hook.delete()
 
-@BOT.command(helpinfo='Shows MC skin')
-async def skin(ctx, username='Shrek'):
+@BOT.command(helpinfo='Shows MC info', aliases=['skin', 'minecraft'])
+async def mc(ctx, username='Shrek'):
     '''
-    Sends specified MC skin to Discord
+    Shows MC info
     '''
     uuid = requests.get('https://api.mojang.com/users/profiles/minecraft/{}'
                         .format(username)).json()['id']
@@ -296,10 +296,16 @@ async def skin(ctx, username='Shrek'):
         'https://sessionserver.mojang.com/session/minecraft/profile/{}'
         .format(uuid)).json()['properties'][0]['value'])
                      .decode('utf-8'))['textures']['SKIN']['url']
+    
+    names = requests.get('https://api.mojang.com/user/profiles/{}/names'
+                        .format(username)).json()
+    history = "**Name History:**\n"
+    for name in reversed(names):
+        history += name['name']+"\n")
 
-    skinurl = requests.get(url).content
-    await ctx.send('**Username: `{}`**'.format(username))
-    await ctx.send(file=discord.File(skinurl, filename='{}.png'.format(username)))
+    await ctx.send('**Username: `{}`**\n**Skin: {}**\n**UUID: {}**'.format(username, url, uuid))
+    await ctx.send(history)
+    
 
 @BOT.command(helpinfo='Searches for YouTube videos', aliases=['yt'])
 async def youtube(ctx, *, query: str):
