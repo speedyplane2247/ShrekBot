@@ -298,7 +298,7 @@ async def minecraft(ctx, username='Shrek'):
                      .decode('utf-8'))['textures']['SKIN']['url']
     
     names = requests.get('https://api.mojang.com/user/profiles/{}/names'
-                        .format(username)).json()
+                        .format(uuid)).json()
     history = "**Name History:**\n"
     for name in reversed(names):
         history += name['name']+"\n"
