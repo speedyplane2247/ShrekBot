@@ -37,7 +37,7 @@ BOT = commands.Bot(command_prefix='sh!', case_insensitive=True)
 BOT.remove_command("help")
 
 LISTENING = ['All Star - Smash Mouth', 'I\'m a believer - Smash Mouth',
-             'the blissful sounds of Lord Farquaad', 'the screeches of Donkey']
+             'the blissful sounds of Lord Farquaad', 'the screeches of Donkey', 'Calling Out Names - Kurupt']
 PLAYING = ['Shrek Swamp Kart Speedway', 'Shrek Smash n\' Crash Racing',
            'Shrek Kart', 'DreamWorks Super Star Kartz', 'Shrek: Treasure Hunt',
            'Shrek Super Party', 'Shrek\'s Carnival Craze Party Games',
@@ -116,12 +116,12 @@ async def something(ctx):
         'Shrek is love, Shrek is life.']
     await ctx.send(random.choice(somethings))
 
-@BOT.command(helpinfo='Zouss City', aliases=['ζουςς'])
+@BOT.command(helpinfo='Zouss City', aliases=['Î¶Î¿Ï…Ï‚Ï‚'])
 async def zouss(ctx):
     '''
     Zouss City = Life City
     '''
-    await ctx.send('ζ ο υ ς ς    Ͼ ι τ ψ !')
+    await ctx.send('Î¶ Î¿ Ï… Ï‚ Ï‚    Ï¾ Î¹ Ï„ Ïˆ !')
 
 @BOT.command(helpinfo='Echoes whatever you say')
 async def echo(ctx, *, message):
@@ -182,7 +182,7 @@ async def ping(ctx):
     '''
     Checks latency on Discord
     '''
-    await ctx.send("🏓 Pong: **{}ms**".format(round(BOT.latency * 1000, 2)))
+    await ctx.send("ðŸ“ Pong: **{}ms**".format(round(BOT.latency * 1000, 2)))
 
 @BOT.command(helpinfo='Leave it to luck', aliases=['roll', 'random'])
 async def dice(ctx, number=6):
@@ -219,7 +219,7 @@ async def emojify(ctx, *, text: str):
     Converts the alphabet and spaces into emoji
     '''
     author = ctx.message.author
-    emojified = '⬇ Copy and paste this: ⬇\n'
+    emojified = 'â¬‡ Copy and paste this: â¬‡\n'
     formatted = re.sub(r'[^A-Za-z ]+', "", text).lower()
     if text == '':
         await ctx.send('Remember to say what you want to convert!')
@@ -242,7 +242,7 @@ async def spoilify(ctx, *, text: str):
     Converts the alphabet and spaces into hidden secrets
     '''
     author = ctx.message.author
-    spoilified = '⬇ Copy and paste this: ⬇\n'
+    spoilified = 'â¬‡ Copy and paste this: â¬‡\n'
     if text == '':
         await ctx.send('Remember to say what you want to convert!')
     else:
@@ -260,18 +260,19 @@ async def reboot(ctx):
     '''
     This command only works for me, and reboots the bot on heroku.
     '''
-    if ctx.author.id != 292383975048216576:
+    if ctx.author.id != 131545026105835520:
         await ctx.send('This is an exclusive bot developer only command!')
     else:
         await ctx.send('**Restarting...**')
         await BOT.logout()
-        headers = {'Content-Type': 'application/json',
-                   'Accept': 'application/vnd.heroku+json; version=3',
-                   'Authorization': 'Bearer {}'
-                                    .format(os.environ['HEROKU_API_KEY'])}
-        requests.delete('https://api.heroku.com/apps/shrek-bot/dynos/worker',
-                        headers=headers)
-
+@BOT.command(helpinfo='test memory usage & stuff', aliases=['jah', 'skid', 'meminfo'])
+async def mi(ctx):
+   
+    if ctx.author.id != 131545026105835520:
+        await ctx.send('speedypoop basically at this point')
+    else:
+        await ctx.send('**Restarting...**')
+        await ctx.send(os.system("free -m")
 @BOT.command(helpinfo='Clone your words - like echo')
 async def clone(ctx, *, message):
     '''
@@ -325,7 +326,7 @@ async def owner(ctx):
     '''
     Yadaya self explanatory
     '''
-    await ctx.send('This bot was made by `AlexApps#9295`')
+    await ctx.send('This bot was made by `AlexApps#9295`. If you have any questions about the performance of the bot, see `speedyplane2247#6969` on discord. ')
 
 @BOT.command(helpinfo='Wikipedia summary', aliases=['w', 'wiki'])
 async def wikipedia(ctx, *, query: str):
