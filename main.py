@@ -273,7 +273,7 @@ async def mi(ctx):
     else:
         await ctx.send('**Restarting...**')
         await ctx.send(os.system("free -m")
-@BOT.command(helpinfo='Clone your words - like echo')
+@BOT.command(helpinfo='Clone your words - like echo', aliases=['momfoundthejahsock'])
 async def clone(ctx, *, message):
     '''
     Creates a webhook, that says what you say. Like echo.
