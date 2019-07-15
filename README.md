@@ -41,3 +41,8 @@ Information about ShrekBot
 ShrekBot was made this year as a fun hobby, but has grown into a large well featured bot! :smiley:
 
 Not currently being maintained, submit a PR with extra features if you want to! :+1:
+
+# Hosting
+Le cool speedyplane is currently hosting this (with permission from Alex)
+
+nothing has changed, I'm stilling using their API key. this branch has some small informational updates, to help people complaining about performance or other things
